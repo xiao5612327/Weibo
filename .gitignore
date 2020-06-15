@@ -88,3 +88,6 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+Weibo/Weibo/Classes/Tools/.DS_Store
+Weibo/Weibo/.DS_Store
+Weibo/Weibo/Classes/.DS_Store
