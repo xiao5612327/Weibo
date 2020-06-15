@@ -33,6 +33,7 @@
 		2345A452249739A800821DF9 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A445249739A800821DF9 /* NSArray+Log.m */; };
 		2345A4552497F4ED00821DF9 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A4542497F4ED00821DF9 /* Bundle+Extensions.swift */; };
 		2345A4572498322B00821DF9 /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A4562498322B00821DF9 /* UIBarButtonItem+Extensions.swift */; };
+		2345A45924983A1100821DF9 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A45824983A1100821DF9 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		2345A446249739A800821DF9 /* NSString+CZPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZPath.h"; sourceTree = "<group>"; };
 		2345A4542497F4ED00821DF9 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		2345A4562498322B00821DF9 /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
+		2345A45824983A1100821DF9 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,11 +161,11 @@
 		2345A4182496F58800821DF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2345A41D2496F58800821DF9 /* Main */,
 				2345A4192496F58800821DF9 /* Home */,
 				2345A41A2496F58800821DF9 /* Discover */,
 				2345A41B2496F58800821DF9 /* Message */,
 				2345A41C2496F58800821DF9 /* Profile */,
-				2345A41D2496F58800821DF9 /* Main */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,6 +249,7 @@
 			children = (
 				2345A4542497F4ED00821DF9 /* Bundle+Extensions.swift */,
 				2345A4562498322B00821DF9 /* UIBarButtonItem+Extensions.swift */,
+				2345A45824983A1100821DF9 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				2345A4572498322B00821DF9 /* UIBarButtonItem+Extensions.swift in Sources */,
 				2345A44C249739A800821DF9 /* NSString+CZPath.m in Sources */,
 				2345A447249739A800821DF9 /* UIColor+CZAddition.m in Sources */,
+				2345A45924983A1100821DF9 /* UIViewController+Extensions.swift in Sources */,
 				2345A4292496F6C700821DF9 /* DiscoverViewController.swift in Sources */,
 				2345A44B249739A800821DF9 /* NSString+CZBase64.m in Sources */,
 				2345A4212496F61700821DF9 /* MainNavigationController.swift in Sources */,

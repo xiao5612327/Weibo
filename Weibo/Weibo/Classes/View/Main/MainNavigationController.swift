@@ -13,7 +13,10 @@ class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // hide default navigationBar
+        navigationBar.isHidden = true
+        print(navigationBar.frame)
+        
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

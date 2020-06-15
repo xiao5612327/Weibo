@@ -32,6 +32,6 @@ extension HomeViewController {
         super.setupUI()
         
         // swift call OC return instanceType method cant know if it is optional
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Friend", target: self, action: #selector(showFriends))
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "Friend", target: self, action: #selector(showFriends))
     }
 }
