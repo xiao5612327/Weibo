@@ -16,19 +16,46 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         setupChildController()
+        setupComposeButton()
     }
     
+    // MARK: - observing button
+    // 
+    @objc fileprivate func compseStatus() {
+        
+    }
+    
+    //MARK: - private button
+    /// custom button
+    private lazy var composeButton: UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        print(item)
+    }
 }
 
 //Mark: Setup main screen
 extension MainTabBarController {
     
     
+    /// set up custom compose button
+    private func setupComposeButton() {
+        tabBar.addSubview(composeButton)
+        
+        let count = CGFloat(children.count)
+        let w = tabBar.bounds.width / count - 1
+        
+        composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)
+        
+        composeButton.addTarget(self, action: #selector(compseStatus), for: .touchUpInside)
+    }
+    
     /// set up all child controllers
     private func setupChildController() {
         let array = [
             ["clsName": "HomeViewController", "title": "Home", "imageName": "home"],
             ["clsName": "MessageViewController", "title": "Message", "imageName": "message_center"],
+            ["clsName": "UIViewController"],
             ["clsName": "DiscoverViewController", "title": "Discover", "imageName": "discover"],
             ["clsName": "ProfileViewController", "title": "Profile", "imageName": "profile"],
         ]
