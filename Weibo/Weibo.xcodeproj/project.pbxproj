@@ -19,6 +19,18 @@
 		2345A4272496F6B800821DF9 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A4262496F6B800821DF9 /* MessageViewController.swift */; };
 		2345A4292496F6C700821DF9 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A4282496F6C700821DF9 /* DiscoverViewController.swift */; };
 		2345A42B2496F6CD00821DF9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A42A2496F6CD00821DF9 /* HomeViewController.swift */; };
+		2345A447249739A800821DF9 /* UIColor+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A42E249739A800821DF9 /* UIColor+CZAddition.m */; };
+		2345A448249739A800821DF9 /* UIView+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A42F249739A800821DF9 /* UIView+CZAddition.m */; };
+		2345A449249739A800821DF9 /* UIScreen+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A432249739A800821DF9 /* UIScreen+CZAddition.m */; };
+		2345A44A249739A800821DF9 /* UILabel+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A434249739A800821DF9 /* UILabel+CZAddition.m */; };
+		2345A44B249739A800821DF9 /* NSString+CZBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A436249739A800821DF9 /* NSString+CZBase64.m */; };
+		2345A44C249739A800821DF9 /* NSString+CZPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A437249739A800821DF9 /* NSString+CZPath.m */; };
+		2345A44D249739A800821DF9 /* UIButton+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A43A249739A800821DF9 /* UIButton+CZAddition.m */; };
+		2345A44E249739A800821DF9 /* NSObject+CZRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A43D249739A800821DF9 /* NSObject+CZRuntime.m */; };
+		2345A44F249739A800821DF9 /* UIViewController+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A440249739A800821DF9 /* UIViewController+CZAddition.m */; };
+		2345A450249739A800821DF9 /* NSString+CZHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A441249739A800821DF9 /* NSString+CZHash.m */; };
+		2345A451249739A800821DF9 /* NSAttributedString+CZAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A444249739A800821DF9 /* NSAttributedString+CZAdditon.m */; };
+		2345A452249739A800821DF9 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A445249739A800821DF9 /* NSArray+Log.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +48,32 @@
 		2345A4262496F6B800821DF9 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		2345A4282496F6C700821DF9 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		2345A42A2496F6CD00821DF9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2345A42C249738CC00821DF9 /* Weibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-Bridge.h"; sourceTree = "<group>"; };
+		2345A42E249739A800821DF9 /* UIColor+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CZAddition.m"; sourceTree = "<group>"; };
+		2345A42F249739A800821DF9 /* UIView+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CZAddition.m"; sourceTree = "<group>"; };
+		2345A430249739A800821DF9 /* UIButton+CZAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CZAddition.h"; sourceTree = "<group>"; };
+		2345A431249739A800821DF9 /* NSString+CZHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZHash.h"; sourceTree = "<group>"; };
+		2345A432249739A800821DF9 /* UIScreen+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+CZAddition.m"; sourceTree = "<group>"; };
+		2345A433249739A800821DF9 /* UIViewController+CZAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CZAddition.h"; sourceTree = "<group>"; };
+		2345A434249739A800821DF9 /* UILabel+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CZAddition.m"; sourceTree = "<group>"; };
+		2345A435249739A800821DF9 /* NSObject+CZRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CZRuntime.h"; sourceTree = "<group>"; };
+		2345A436249739A800821DF9 /* NSString+CZBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CZBase64.m"; sourceTree = "<group>"; };
+		2345A437249739A800821DF9 /* NSString+CZPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CZPath.m"; sourceTree = "<group>"; };
+		2345A438249739A800821DF9 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		2345A439249739A800821DF9 /* NSAttributedString+CZAdditon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+CZAdditon.h"; sourceTree = "<group>"; };
+		2345A43A249739A800821DF9 /* UIButton+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CZAddition.m"; sourceTree = "<group>"; };
+		2345A43B249739A800821DF9 /* UIView+CZAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CZAddition.h"; sourceTree = "<group>"; };
+		2345A43C249739A800821DF9 /* UIColor+CZAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CZAddition.h"; sourceTree = "<group>"; };
+		2345A43D249739A800821DF9 /* NSObject+CZRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CZRuntime.m"; sourceTree = "<group>"; };
+		2345A43E249739A800821DF9 /* UILabel+CZAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+CZAddition.h"; sourceTree = "<group>"; };
+		2345A43F249739A800821DF9 /* UIScreen+CZAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+CZAddition.h"; sourceTree = "<group>"; };
+		2345A440249739A800821DF9 /* UIViewController+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CZAddition.m"; sourceTree = "<group>"; };
+		2345A441249739A800821DF9 /* NSString+CZHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CZHash.m"; sourceTree = "<group>"; };
+		2345A442249739A800821DF9 /* NSString+CZBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZBase64.h"; sourceTree = "<group>"; };
+		2345A443249739A800821DF9 /* CZAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZAdditions.h; sourceTree = "<group>"; };
+		2345A444249739A800821DF9 /* NSAttributedString+CZAdditon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+CZAdditon.m"; sourceTree = "<group>"; };
+		2345A445249739A800821DF9 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		2345A446249739A800821DF9 /* NSString+CZPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZPath.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +109,7 @@
 				2345A4142496F58800821DF9 /* Classes */,
 				2345A3FA2496E60900821DF9 /* AppDelegate.swift */,
 				2345A3FC2496E60900821DF9 /* SceneDelegate.swift */,
+				2345A42C249738CC00821DF9 /* Weibo-Bridge.h */,
 				2345A4102496EF3200821DF9 /* Main.storyboard */,
 				2345A4032496E60B00821DF9 /* Assets.xcassets */,
 				2345A4052496E60B00821DF9 /* LaunchScreen.storyboard */,
@@ -100,6 +139,7 @@
 		2345A4162496F58800821DF9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2345A42D249739A800821DF9 /* Additions */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -163,6 +203,38 @@
 				2345A4222496F64C00821DF9 /* BaseViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		2345A42D249739A800821DF9 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				2345A42E249739A800821DF9 /* UIColor+CZAddition.m */,
+				2345A42F249739A800821DF9 /* UIView+CZAddition.m */,
+				2345A430249739A800821DF9 /* UIButton+CZAddition.h */,
+				2345A431249739A800821DF9 /* NSString+CZHash.h */,
+				2345A432249739A800821DF9 /* UIScreen+CZAddition.m */,
+				2345A433249739A800821DF9 /* UIViewController+CZAddition.h */,
+				2345A434249739A800821DF9 /* UILabel+CZAddition.m */,
+				2345A435249739A800821DF9 /* NSObject+CZRuntime.h */,
+				2345A436249739A800821DF9 /* NSString+CZBase64.m */,
+				2345A437249739A800821DF9 /* NSString+CZPath.m */,
+				2345A438249739A800821DF9 /* NSArray+Log.h */,
+				2345A439249739A800821DF9 /* NSAttributedString+CZAdditon.h */,
+				2345A43A249739A800821DF9 /* UIButton+CZAddition.m */,
+				2345A43B249739A800821DF9 /* UIView+CZAddition.h */,
+				2345A43C249739A800821DF9 /* UIColor+CZAddition.h */,
+				2345A43D249739A800821DF9 /* NSObject+CZRuntime.m */,
+				2345A43E249739A800821DF9 /* UILabel+CZAddition.h */,
+				2345A43F249739A800821DF9 /* UIScreen+CZAddition.h */,
+				2345A440249739A800821DF9 /* UIViewController+CZAddition.m */,
+				2345A441249739A800821DF9 /* NSString+CZHash.m */,
+				2345A442249739A800821DF9 /* NSString+CZBase64.h */,
+				2345A443249739A800821DF9 /* CZAdditions.h */,
+				2345A444249739A800821DF9 /* NSAttributedString+CZAdditon.m */,
+				2345A445249739A800821DF9 /* NSArray+Log.m */,
+				2345A446249739A800821DF9 /* NSString+CZPath.h */,
+			);
+			path = Additions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,14 +308,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2345A448249739A800821DF9 /* UIView+CZAddition.m in Sources */,
+				2345A44C249739A800821DF9 /* NSString+CZPath.m in Sources */,
+				2345A447249739A800821DF9 /* UIColor+CZAddition.m in Sources */,
 				2345A4292496F6C700821DF9 /* DiscoverViewController.swift in Sources */,
+				2345A44B249739A800821DF9 /* NSString+CZBase64.m in Sources */,
 				2345A4212496F61700821DF9 /* MainNavigationController.swift in Sources */,
+				2345A44A249739A800821DF9 /* UILabel+CZAddition.m in Sources */,
+				2345A44E249739A800821DF9 /* NSObject+CZRuntime.m in Sources */,
 				2345A4272496F6B800821DF9 /* MessageViewController.swift in Sources */,
+				2345A44F249739A800821DF9 /* UIViewController+CZAddition.m in Sources */,
 				2345A3FB2496E60900821DF9 /* AppDelegate.swift in Sources */,
 				2345A42B2496F6CD00821DF9 /* HomeViewController.swift in Sources */,
+				2345A451249739A800821DF9 /* NSAttributedString+CZAdditon.m in Sources */,
 				2345A3FD2496E60900821DF9 /* SceneDelegate.swift in Sources */,
 				2345A4252496F6AD00821DF9 /* ProfileViewController.swift in Sources */,
+				2345A452249739A800821DF9 /* NSArray+Log.m in Sources */,
 				2345A41F2496F5E200821DF9 /* MainTabBarController.swift in Sources */,
+				2345A450249739A800821DF9 /* NSString+CZHash.m in Sources */,
+				2345A449249739A800821DF9 /* UIScreen+CZAddition.m in Sources */,
+				2345A44D249739A800821DF9 /* UIButton+CZAddition.m in Sources */,
 				2345A4232496F64C00821DF9 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +473,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xiaoping.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -407,6 +492,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xiaoping.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
