@@ -27,7 +27,10 @@ extension MainTabBarController {
     /// set up all child controllers
     private func setupChildController() {
         let array = [
-            ["clsName": "HomeViewController", "title": "Home", "imageName": ""]
+            ["clsName": "HomeViewController", "title": "Home", "imageName": "home"],
+            ["clsName": "MessageViewController", "title": "Message", "imageName": "message_center"],
+            ["clsName": "DiscoverViewController", "title": "Discover", "imageName": "discover"],
+            ["clsName": "ProfileViewController", "title": "Profile", "imageName": "profile"],
         ]
         
         var arrayM = [UIViewController]()
@@ -54,6 +57,10 @@ extension MainTabBarController {
         let vc = cls.init()
         
         vc.title = title
+        
+        //3. set tab bar image icon
+        vc.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
+        vc.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_selected")?.withRenderingMode(.alwaysOriginal)
         
         let nav = MainNavigationController(rootViewController: vc)
         return nav
