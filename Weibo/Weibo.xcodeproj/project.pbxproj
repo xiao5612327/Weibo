@@ -31,6 +31,7 @@
 		2345A450249739A800821DF9 /* NSString+CZHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A441249739A800821DF9 /* NSString+CZHash.m */; };
 		2345A451249739A800821DF9 /* NSAttributedString+CZAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A444249739A800821DF9 /* NSAttributedString+CZAdditon.m */; };
 		2345A452249739A800821DF9 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A445249739A800821DF9 /* NSArray+Log.m */; };
+		2345A4552497F4ED00821DF9 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A4542497F4ED00821DF9 /* Bundle+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		2345A444249739A800821DF9 /* NSAttributedString+CZAdditon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+CZAdditon.m"; sourceTree = "<group>"; };
 		2345A445249739A800821DF9 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		2345A446249739A800821DF9 /* NSString+CZPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZPath.h"; sourceTree = "<group>"; };
+		2345A4542497F4ED00821DF9 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		2345A4162496F58800821DF9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2345A4532497F4BA00821DF9 /* Extensions */,
 				2345A42D249739A800821DF9 /* Additions */,
 			);
 			path = Tools;
@@ -237,6 +240,14 @@
 			path = Additions;
 			sourceTree = "<group>";
 		};
+		2345A4532497F4BA00821DF9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2345A4542497F4ED00821DF9 /* Bundle+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -321,6 +332,7 @@
 				2345A3FB2496E60900821DF9 /* AppDelegate.swift in Sources */,
 				2345A42B2496F6CD00821DF9 /* HomeViewController.swift in Sources */,
 				2345A451249739A800821DF9 /* NSAttributedString+CZAdditon.m in Sources */,
+				2345A4552497F4ED00821DF9 /* Bundle+Extensions.swift in Sources */,
 				2345A3FD2496E60900821DF9 /* SceneDelegate.swift in Sources */,
 				2345A4252496F6AD00821DF9 /* ProfileViewController.swift in Sources */,
 				2345A452249739A800821DF9 /* NSArray+Log.m in Sources */,
