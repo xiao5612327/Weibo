@@ -32,6 +32,7 @@
 		2345A451249739A800821DF9 /* NSAttributedString+CZAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A444249739A800821DF9 /* NSAttributedString+CZAdditon.m */; };
 		2345A452249739A800821DF9 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 2345A445249739A800821DF9 /* NSArray+Log.m */; };
 		2345A4552497F4ED00821DF9 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A4542497F4ED00821DF9 /* Bundle+Extensions.swift */; };
+		2345A4572498322B00821DF9 /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A4562498322B00821DF9 /* UIBarButtonItem+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		2345A445249739A800821DF9 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		2345A446249739A800821DF9 /* NSString+CZPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZPath.h"; sourceTree = "<group>"; };
 		2345A4542497F4ED00821DF9 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		2345A4562498322B00821DF9 /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				2345A4542497F4ED00821DF9 /* Bundle+Extensions.swift */,
+				2345A4562498322B00821DF9 /* UIBarButtonItem+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2345A448249739A800821DF9 /* UIView+CZAddition.m in Sources */,
+				2345A4572498322B00821DF9 /* UIBarButtonItem+Extensions.swift in Sources */,
 				2345A44C249739A800821DF9 /* NSString+CZPath.m in Sources */,
 				2345A447249739A800821DF9 /* UIColor+CZAddition.m in Sources */,
 				2345A4292496F6C700821DF9 /* DiscoverViewController.swift in Sources */,

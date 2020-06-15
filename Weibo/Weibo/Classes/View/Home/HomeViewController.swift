@@ -20,7 +20,7 @@ class HomeViewController: BaseViewController {
     /// target func for friend button
     @objc private func showFriends() {
         
-        let vc = UIViewController()
+        let vc = BaseViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -30,7 +30,8 @@ extension HomeViewController {
     /// set up base view controller UI
     override func setupUI() {
         super.setupUI()
-        // setup navigation bar item
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Friend", style: .plain, target: self, action: #selector(showFriends))
+        
+        // swift call OC return instanceType method cant know if it is optional
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Friend", target: self, action: #selector(showFriends))
     }
 }
