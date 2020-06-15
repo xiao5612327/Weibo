@@ -16,15 +16,21 @@ class HomeViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    /// target func for friend button
+    @objc private func showFriends() {
+        
+        let vc = UIViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
-    */
+}
 
+extension HomeViewController {
+    
+    /// set up base view controller UI
+    override func setupUI() {
+        super.setupUI()
+        // setup navigation bar item
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Friend", style: .plain, target: self, action: #selector(showFriends))
+    }
 }

@@ -20,7 +20,7 @@ class MainTabBarController: UITabBarController {
     }
     
     // MARK: - observing button
-    // 
+    //  
     @objc fileprivate func compseStatus() {
         
     }
