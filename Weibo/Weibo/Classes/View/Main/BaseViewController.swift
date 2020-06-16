@@ -12,6 +12,10 @@ import UIKit
 // in swift, more similar to mutilple inherite
 class BaseViewController: UIViewController {
 
+    // User log in status
+    var userLogon = false
+    
+    // MARK: - tableview property
     var tableView: UITableView?
     var refreshController: UIRefreshControl?
     var isPullUp = false
@@ -49,12 +53,18 @@ extension BaseViewController {
     
     /// set up base view controller UI
     @objc func setupUI() {
-        view.backgroundColor = UIColor.cz_random()
+        view.backgroundColor = UIColor.white
         
         setupNavigationBar()
-        setupTableView()
+        userLogon ? setupTableView() : setupVisitorView()
     }
     
+    private func setupVisitorView() {
+        
+        let visitoerView = UIView(frame: view.bounds)
+        visitoerView.backgroundColor = UIColor.cz_random()
+        view.insertSubview(visitoerView, belowSubview: navigationBar)
+    }
     
     /// set up table view
     fileprivate func setupTableView() {
