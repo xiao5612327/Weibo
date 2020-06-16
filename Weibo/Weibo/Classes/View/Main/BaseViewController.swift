@@ -8,6 +8,8 @@
 
 import UIKit
 
+// OC does not support mutilpl Inherite, instead using protocal
+// in swift, more similar to mutilple inherite
 class BaseViewController: UIViewController {
 
     var tableView: UITableView?
@@ -33,6 +35,7 @@ class BaseViewController: UIViewController {
 
 }
 
+// Setup Main UI
 extension BaseViewController {
     
     /// set up base view controller UI
@@ -49,6 +52,10 @@ extension BaseViewController {
         tableView = UITableView(frame: view.bounds, style: .plain)
         
         view.insertSubview(tableView!, belowSubview: navigationBar)
+        
+        // set up datasource and delegate
+        tableView?.dataSource = self
+        tableView?.delegate = self
     }
     
     fileprivate func setupNavigationBar() {
@@ -61,5 +68,20 @@ extension BaseViewController {
         
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.darkGray]
+    }
+}
+
+
+// MARK: table view data source, and delegate
+extension BaseViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    // Base view controller only respond for prepare method, children view controllers
+    // should implement real method
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
