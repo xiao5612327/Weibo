@@ -50,5 +50,90 @@ extension VisitorView {
     
     func setupUI() {
         backgroundColor = .white
+        
+        // 1. add Views
+        addSubview(iconView)
+        addSubview(houseIconView)
+        addSubview(tipLabel)
+        addSubview(registerButton)
+        addSubview(loginButton)
+        
+        // 2. programmiclly set up autolayout
+        for v in subviews {
+            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        let margin: CGFloat = 20
+        // icon view
+        addConstraint(NSLayoutConstraint(
+            item: iconView,
+            attribute: .centerX,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .centerX,
+            multiplier: 1,
+            constant: 0))
+        
+        addConstraint(NSLayoutConstraint(
+            item: iconView,
+            attribute: .centerY,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .centerY,
+            multiplier: 1,
+            constant: -60))
+        
+        // house icon view
+        addConstraint(NSLayoutConstraint(
+                  item: houseIconView,
+                  attribute: .centerX,
+                  relatedBy: .equal,
+                  toItem: iconView,
+                  attribute: .centerX,
+                  multiplier: 1,
+                  constant: 0))
+              
+              addConstraint(NSLayoutConstraint(
+                  item: houseIconView,
+                  attribute: .centerY,
+                  relatedBy: .equal,
+                  toItem: iconView,
+                  attribute: .centerY,
+                  multiplier: 1,
+                  constant: 0))
+        
+        addConstraint(NSLayoutConstraint(item: tipLabel,
+                                         attribute: .centerX,
+                                         relatedBy: .equal,
+                                         toItem: iconView,
+                                         attribute: .centerX,
+                                         multiplier: 1,
+                                         constant: 0))
+        
+        addConstraint(NSLayoutConstraint(item: tipLabel,
+                                         attribute: .top,
+                                         relatedBy: .equal,
+                                         toItem: iconView,
+                                         attribute: .bottom,
+                                         multiplier: 1,
+                                         constant: margin))
+        
+        addConstraint(NSLayoutConstraint(item: tipLabel,
+                                         attribute: .width,
+                                         relatedBy: .equal,
+                                         toItem: nil,
+                                         attribute: .notAnAttribute,
+                                         multiplier: 1.0,
+                                         constant: 236))
+        
+        // 4. register button
+        registerButton.leftAnchor.constraint(equalTo: tipLabel.leftAnchor).isActive = true
+        registerButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        registerButton.topAnchor.constraint(equalTo: tipLabel.bottomAnchor, constant: margin).isActive = true
+        
+        // 5. login button
+        loginButton.rightAnchor.constraint(equalTo: tipLabel.rightAnchor).isActive = true
+        loginButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        loginButton.topAnchor.constraint(equalTo: tipLabel.bottomAnchor, constant: margin).isActive = true
     }
 }
