@@ -11,7 +11,9 @@ import UIKit
 class BaseViewController: UIViewController {
 
     // custom navigation bar
-    lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: topStatusBarHeight, width: UIScreen.cz_screenWidth(), height: 64))
+    lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: topStatusBarHeight, width: UIScreen.cz_screenWidth(), height: 44))
+    
+    lazy var statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: topStatusBarHeight))
     
     // custom navigation item
     lazy var navItem = UINavigationItem()
@@ -19,7 +21,6 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        print(topStatusBarHeight)
     }
     
     override var title: String? {
@@ -37,10 +38,13 @@ extension BaseViewController {
         view.backgroundColor = UIColor.cz_random()
         
         // add navigationbar
+        view.addSubview(statusBarView)
         view.addSubview(navigationBar)
+        statusBarView.backgroundColor = .white
         navigationBar.backgroundColor = .white
         navigationBar.items = [navItem]
         
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.darkGray]
     }
 }

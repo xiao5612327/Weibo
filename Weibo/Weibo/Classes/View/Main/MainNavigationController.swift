@@ -15,8 +15,6 @@ class MainNavigationController: UINavigationController {
 
         // hide default navigationBar
         navigationBar.isHidden = true
-        print(navigationBar.frame)
-        
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
@@ -26,8 +24,21 @@ class MainNavigationController: UINavigationController {
         // pushViewController will be called
         if !children.isEmpty {
             viewController.hidesBottomBarWhenPushed = true
+            
+            if let vc = viewController as? BaseViewController {
+                
+                let title = viewControllers.count == 1 ? children.first?.title ?? "Back" : "Back"
+                
+                vc.navItem.leftBarButtonItem = UIBarButtonItem(title: title, target: self, action: #selector(popToParent), isBackButton: true)
+            }
+
         }
         
+        
         super.pushViewController(viewController, animated: animated)
+    }
+    
+    @objc private func popToParent() {
+        popViewController(animated: true)
     }
 }
