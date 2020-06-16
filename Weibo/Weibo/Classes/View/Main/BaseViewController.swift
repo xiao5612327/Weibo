@@ -10,6 +10,8 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    var tableView: UITableView?
+    
     // custom navigation bar
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: topStatusBarHeight, width: UIScreen.cz_screenWidth(), height: 44))
     
@@ -37,6 +39,19 @@ extension BaseViewController {
     @objc func setupUI() {
         view.backgroundColor = UIColor.cz_random()
         
+        setupNavigationBar()
+        setupTableView()
+    }
+    
+    
+    /// set up table view
+    fileprivate func setupTableView() {
+        tableView = UITableView(frame: view.bounds, style: .plain)
+        
+        view.insertSubview(tableView!, belowSubview: navigationBar)
+    }
+    
+    fileprivate func setupNavigationBar() {
         // add navigationbar
         view.addSubview(statusBarView)
         view.addSubview(navigationBar)

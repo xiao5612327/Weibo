@@ -205,8 +205,7 @@
 		2345A41D2496F58800821DF9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				2345A41E2496F5E200821DF9 /* MainTabBarController.swift */,
-				2345A4202496F61700821DF9 /* MainNavigationController.swift */,
+				2345A45A24987D6D00821DF9 /* MainControllers */,
 				2345A4222496F64C00821DF9 /* BaseViewController.swift */,
 			);
 			path = Main;
@@ -252,6 +251,15 @@
 				2345A45824983A1100821DF9 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2345A45A24987D6D00821DF9 /* MainControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2345A41E2496F5E200821DF9 /* MainTabBarController.swift */,
+				2345A4202496F61700821DF9 /* MainNavigationController.swift */,
+			);
+			path = MainControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

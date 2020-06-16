@@ -19,6 +19,14 @@ class MainTabBarController: UITabBarController {
         setupComposeButton()
     }
     
+    
+    /// using code to controller device interf aceOrientation.
+    // why here? when parent viewcontroller apply this one
+    // all children view controller will also apply.
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     // MARK: - observing button
     //  
     @objc fileprivate func compseStatus() {
