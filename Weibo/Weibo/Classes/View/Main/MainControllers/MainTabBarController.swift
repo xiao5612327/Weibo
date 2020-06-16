@@ -36,10 +36,7 @@ class MainTabBarController: UITabBarController {
     //MARK: - private button
     /// custom button
     private lazy var composeButton: UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
-    
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        print(item)
-    }
+
 }
 
 //Mark: Setup main screen

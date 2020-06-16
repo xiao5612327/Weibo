@@ -11,6 +11,24 @@ import UIKit
 /// visitor view
 class VisitorView: UIView {
 
+    var visitorInfo: [String: String]? {
+        didSet {
+            // 1. get dict info
+            guard let imageName = visitorInfo?["imageName"],
+                let message = visitorInfo?["message"] else {
+                return
+            }
+            
+            tipLabel.text = message
+            if imageName.isEmpty {
+                return
+            }
+            
+            iconView.image = UIImage(named: imageName)
+        }
+    }
+    
+    // MARK: initialize
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -52,7 +70,7 @@ class VisitorView: UIView {
 extension VisitorView {
     
     func setupUI() {
-        backgroundColor = .white
+        backgroundColor = UIColor.cz_color(withHex: 0xEDEDED)
         
         // 1. add Views
         addSubview(iconView)
@@ -143,7 +161,7 @@ extension VisitorView {
         let viewDict = ["maskIconView" : maskIconView,
                         "registerButton": registerButton]
         
-        let metrics = ["spacing": -35]
+        let metrics = ["spacing": -20 ]
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat: "H:|-0-[maskIconView]-0-|",
             options: [],
