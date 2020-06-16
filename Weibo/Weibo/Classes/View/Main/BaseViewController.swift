@@ -32,7 +32,9 @@ class BaseViewController: UIViewController {
     
     
     /// method to prepare data
-    @objc func loadData() {}
+    @objc func loadData() {
+        refreshController?.endRefreshing()
+    }
     
     override var title: String? {
         didSet {
