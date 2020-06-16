@@ -25,7 +25,15 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        loadData()
     }
+    
+    
+    /// method to prepare data
+    func loadData() {
+        
+    }
+    
     
     override var title: String? {
         didSet {
