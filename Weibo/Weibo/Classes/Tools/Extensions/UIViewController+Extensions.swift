@@ -12,4 +12,9 @@ extension UIViewController {
     var topStatusBarHeight: CGFloat {
         return UIApplication.shared.statusBarFrame.size.height
     }
+    
+    var bottomSafeAreaHeight: CGFloat {
+        return UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+    }
+    
 }

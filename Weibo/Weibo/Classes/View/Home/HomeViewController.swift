@@ -24,7 +24,7 @@ class HomeViewController: BaseViewController {
     // load data
     override func loadData() {
         
-        for i in 0..<9 {
+        for i in 0..<50 {
             statusList.insert(i.description, at: 0)
         }
     }
@@ -42,7 +42,7 @@ class HomeViewController: BaseViewController {
 extension HomeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        return statusList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

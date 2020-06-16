@@ -30,10 +30,7 @@ class BaseViewController: UIViewController {
     
     
     /// method to prepare data
-    func loadData() {
-        
-    }
-    
+    func loadData() {}
     
     override var title: String? {
         didSet {
@@ -60,10 +57,11 @@ extension BaseViewController {
         tableView = UITableView(frame: view.bounds, style: .plain)
         
         view.insertSubview(tableView!, belowSubview: navigationBar)
-        
+        tableView?.contentInsetAdjustmentBehavior = .never
         // set up datasource and delegate
         tableView?.dataSource = self
         tableView?.delegate = self
+        tableView?.contentInset = UIEdgeInsets(top: topStatusBarHeight + navigationBar.bounds.height, left: 0, bottom: (tabBarController?.tabBar.frame.height ?? 0), right: 0)
     }
     
     fileprivate func setupNavigationBar() {
