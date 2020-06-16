@@ -13,6 +13,8 @@ import UIKit
 class BaseViewController: UIViewController {
 
     var tableView: UITableView?
+    var refreshController: UIRefreshControl?
+    var isPullUp = false
     
     // custom navigation bar
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: topStatusBarHeight, width: UIScreen.cz_screenWidth(), height: 44))
@@ -30,7 +32,7 @@ class BaseViewController: UIViewController {
     
     
     /// method to prepare data
-    func loadData() {}
+    @objc func loadData() {}
     
     override var title: String? {
         didSet {
@@ -61,7 +63,14 @@ extension BaseViewController {
         // set up datasource and delegate
         tableView?.dataSource = self
         tableView?.delegate = self
+        
+        // set table view content insert
         tableView?.contentInset = UIEdgeInsets(top: topStatusBarHeight + navigationBar.bounds.height, left: 0, bottom: (tabBarController?.tabBar.frame.height ?? 0), right: 0)
+        
+        // setup refresh controller
+        refreshController = UIRefreshControl()
+        tableView?.refreshControl = refreshController
+        refreshController?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
     
     fileprivate func setupNavigationBar() {
@@ -89,5 +98,24 @@ extension BaseViewController: UITableViewDataSource, UITableViewDelegate {
     // should implement real method
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+    
+    // when user reach to end of table view, refresh data
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        // get section and row
+        let section = tableView.numberOfSections - 1
+        let row = indexPath.row
+        
+        let count = tableView.numberOfRows(inSection: section)
+        
+        if row == (count - 1) && !isPullUp {
+            print("is pull up")
+            isPullUp = true
+            
+            // begin load more data
+            loadData()
+        }
+        
     }
 }

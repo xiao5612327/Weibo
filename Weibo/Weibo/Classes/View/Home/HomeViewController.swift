@@ -24,8 +24,18 @@ class HomeViewController: BaseViewController {
     // load data
     override func loadData() {
         
-        for i in 0..<50 {
-            statusList.insert(i.description, at: 0)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            for i in 0..<10 {
+                if self?.isPullUp ?? false {
+                    self?.statusList.append("\(i.description)" + " pull up")
+                }else {
+                    self?.statusList.insert(i.description, at: 0)
+                }
+            }
+            self?.isPullUp = false
+
+            self?.refreshController?.endRefreshing()
+            self?.tableView?.reloadData()
         }
     }
     
