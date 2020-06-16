@@ -22,6 +22,9 @@ class VisitorView: UIView {
     
     // MARK: - private properties
     private lazy var iconView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))
+    
+    private lazy var maskIconView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
+    
     private lazy var houseIconView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
     
     private lazy var tipLabel: UILabel = UILabel.cz_label(
@@ -39,7 +42,7 @@ class VisitorView: UIView {
     private lazy var loginButton: UIButton = UIButton.cz_textButton(
         "Log in",
         fontSize: 16,
-        normalColor: .orange,
+        normalColor: .black,
         highlightedColor: .black,
         backgroundImageName: "common_button_white_disable")
 
@@ -53,6 +56,7 @@ extension VisitorView {
         
         // 1. add Views
         addSubview(iconView)
+        addSubview(maskIconView)
         addSubview(houseIconView)
         addSubview(tipLabel)
         addSubview(registerButton)
@@ -135,5 +139,21 @@ extension VisitorView {
         loginButton.rightAnchor.constraint(equalTo: tipLabel.rightAnchor).isActive = true
         loginButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         loginButton.topAnchor.constraint(equalTo: tipLabel.bottomAnchor, constant: margin).isActive = true
+        
+        let viewDict = ["maskIconView" : maskIconView,
+                        "registerButton": registerButton]
+        
+        let metrics = ["spacing": -35]
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[maskIconView]-0-|",
+            options: [],
+            metrics: nil,
+            views: viewDict))
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[maskIconView]-(spacing)-[registerButton]",
+            options: [],
+            metrics: metrics,
+            views: viewDict))
     }
 }
