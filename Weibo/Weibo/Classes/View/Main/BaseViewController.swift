@@ -61,8 +61,7 @@ extension BaseViewController {
     
     private func setupVisitorView() {
         
-        let visitoerView = UIView(frame: view.bounds)
-        visitoerView.backgroundColor = UIColor.cz_random()
+        let visitoerView = VisitorView(frame: view.bounds)
         view.insertSubview(visitoerView, belowSubview: navigationBar)
     }
     
