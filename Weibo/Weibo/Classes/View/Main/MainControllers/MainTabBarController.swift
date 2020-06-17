@@ -57,20 +57,18 @@ extension MainTabBarController {
     
     /// set up all child controllers
     private func setupChildController() {
-        let array: [[String: Any]] = [
-            ["clsName": "HomeViewController", "title": "Home", "imageName": "home",
-             "visitorInfo": ["imageName": "", "message": "Follow people, find out what is going on."]],
-            ["clsName": "MessageViewController", "title": "Message", "imageName": "message_center",
-             "visitorInfo": ["imageName": "visitordiscover_image_message", "message": "Log in, people can comment on your post, send message to you, and recevie notification."]],
-            ["clsName": "UIViewController"],
-            ["clsName": "DiscoverViewController", "title": "Discover", "imageName": "discover",
-            "visitorInfo": ["imageName": "visitordiscover_image_message", "message": "Log in, you will get all newest, hottest Weibo, and never missing with fashion."]],
-            ["clsName": "ProfileViewController", "title": "Profile", "imageName": "profile",
-            "visitorInfo": ["imageName": "visitordiscover_image_profile", "message": "Log in, your Weibo, photos, personal information will be displayed here. Show yourself!"]],
-        ]
         
-        //(array as NSArray).write(toFile: "/Users/mac/Desktop/Demo.plist", atomically: true)
+        // get setup ui json data from bundle
+        // 1. get path from bundle for ui json file
+        // 2. load nsdata
+        // 3. deserialization
+        guard let path = Bundle.main.path(forResource: "main.json", ofType: nil),
+            let data = NSData(contentsOfFile: path),
+            let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: Any]] else {
+            return
+        }
         
+        // loop through array to create viewcontrollers
         var arrayM = [UIViewController]()
         for dic in array {
             arrayM.append(controller(dict: dic))

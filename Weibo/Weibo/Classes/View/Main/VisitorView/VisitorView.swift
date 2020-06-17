@@ -50,7 +50,7 @@ class VisitorView: UIView {
         let anim = CABasicAnimation(keyPath: "transform.rotation")
         anim.toValue = 2 * CGFloat.pi
         anim.duration = 15
-        
+        anim.repeatCount = MAXFLOAT
         // usually used for cycling image rotation animation.
         anim.isRemovedOnCompletion = false
         
