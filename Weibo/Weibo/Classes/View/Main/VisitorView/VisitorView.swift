@@ -20,11 +20,17 @@ class VisitorView: UIView {
             }
             
             tipLabel.text = message
+            
+            // home page no need set icon image
             if imageName.isEmpty {
                 return
             }
             
             iconView.image = UIImage(named: imageName)
+            
+            // house icon view only for home page. so hide for other tabbar items
+            houseIconView.isHidden = true
+            maskIconView.isHidden = true
         }
     }
     
@@ -80,6 +86,7 @@ extension VisitorView {
         addSubview(registerButton)
         addSubview(loginButton)
         
+        tipLabel.textAlignment = .center
         // 2. programmiclly set up autolayout
         for v in subviews {
             v.translatesAutoresizingMaskIntoConstraints = false
