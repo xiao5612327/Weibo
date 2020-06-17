@@ -57,14 +57,21 @@ extension MainTabBarController {
     
     /// set up all child controllers
     private func setupChildController() {
+        // 0. get application setting json data from disk
+        let docDic = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let jsonPath = (docDic as NSString).appendingPathComponent("main.json")
         
+        var data = NSData(contentsOfFile: jsonPath)
+        
+        if data == nil {
+            let path = Bundle.main.path(forResource: "main.json", ofType: nil)
+            data = NSData(contentsOfFile: path!)
+        }
         // get setup ui json data from bundle
         // 1. get path from bundle for ui json file
         // 2. load nsdata
         // 3. deserialization
-        guard let path = Bundle.main.path(forResource: "main.json", ofType: nil),
-            let data = NSData(contentsOfFile: path),
-            let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: Any]] else {
+        guard let array = try? JSONSerialization.jsonObject(with: data! as Data, options: []) as? [[String: Any]] else {
             return
         }
         

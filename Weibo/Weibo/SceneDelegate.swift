@@ -76,6 +76,8 @@ extension SceneDelegate {
             // 3. write to disk
             let docDic = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
             let jsonPath = (docDic as NSString).appendingPathComponent("main.json")
+            
+            // directly save to disk, waiting for next time user launch app to use
             data?.write(toFile: jsonPath, atomically: true)
             
             
