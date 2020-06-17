@@ -49,6 +49,18 @@ class BaseViewController: UIViewController {
 
 }
 
+// MARK: visitor view buttons target
+extension BaseViewController {
+    
+    @objc func handleRegister() {
+        print(1)
+    }
+    
+    @objc func handleLogin() {
+        print(2)
+    }
+}
+
 // Setup Main UI
 extension BaseViewController {
     
@@ -63,7 +75,9 @@ extension BaseViewController {
     private func setupVisitorView() {
         
         let visitoerView = VisitorView(frame: view.bounds)
-        visitoerView.visitorInfo = visitorInfoDictionary 
+        visitoerView.visitorInfo = visitorInfoDictionary
+        visitoerView.registerButton.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
+        visitoerView.loginButton.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         view.insertSubview(visitoerView, belowSubview: navigationBar)
     }
     

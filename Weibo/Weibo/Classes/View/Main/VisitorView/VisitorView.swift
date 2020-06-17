@@ -11,6 +11,20 @@ import UIKit
 /// visitor view
 class VisitorView: UIView {
 
+    lazy var registerButton: UIButton = UIButton.cz_textButton(
+        "Register",
+        fontSize: 16,
+        normalColor: .orange,
+        highlightedColor: .black,
+        backgroundImageName: "common_button_white_disable")
+    
+    lazy var loginButton: UIButton = UIButton.cz_textButton(
+        "Log in",
+        fontSize: 16,
+        normalColor: .black,
+        highlightedColor: .black,
+        backgroundImageName: "common_button_white_disable")
+
     var visitorInfo: [String: String]? {
         didSet {
             // 1. get dict info
@@ -69,20 +83,6 @@ class VisitorView: UIView {
         withText: "Follow some people, back to here find out what is surpise, back to here to see what is happening!",
         fontSize: 14,
         color: .darkGray)
-
-    private lazy var registerButton: UIButton = UIButton.cz_textButton(
-        "Register",
-        fontSize: 16,
-        normalColor: .orange,
-        highlightedColor: .black,
-        backgroundImageName: "common_button_white_disable")
-    
-    private lazy var loginButton: UIButton = UIButton.cz_textButton(
-        "Log in",
-        fontSize: 16,
-        normalColor: .black,
-        highlightedColor: .black,
-        backgroundImageName: "common_button_white_disable")
 
 }
 
