@@ -24,6 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = tb
         window?.makeKeyAndVisible()
         
+        loadAppInfo()
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
@@ -58,3 +60,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+    
+    
+    /// preload app ui json data
+    private func loadAppInfo() {
+        
+        DispatchQueue.global().async {
+            // 1. get url
+            let url = Bundle.main.url(forResource: "main.json", withExtension: nil)
+            
+            // 2. data
+            let data = NSData(contentsOf: url!)
+            
+            // 3. write to disk
+            let docDic = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            let jsonPath = (docDic as NSString).appendingPathComponent("main.json")
+            data?.write(toFile: jsonPath, atomically: true)
+            
+            
+        }
+    }
+}
