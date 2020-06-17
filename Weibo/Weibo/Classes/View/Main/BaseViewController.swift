@@ -14,6 +14,7 @@ class BaseViewController: UIViewController {
 
     // User log in status
     var userLogon = false
+    var visitorInfoDictionary: [String: String]?
     
     // MARK: - tableview property
     var tableView: UITableView?
@@ -62,6 +63,7 @@ extension BaseViewController {
     private func setupVisitorView() {
         
         let visitoerView = VisitorView(frame: view.bounds)
+        visitoerView.visitorInfo = visitorInfoDictionary 
         view.insertSubview(visitoerView, belowSubview: navigationBar)
     }
     

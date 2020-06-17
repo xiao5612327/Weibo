@@ -57,13 +57,19 @@ extension MainTabBarController {
     
     /// set up all child controllers
     private func setupChildController() {
-        let array = [
-            ["clsName": "HomeViewController", "title": "Home", "imageName": "home"],
-            ["clsName": "MessageViewController", "title": "Message", "imageName": "message_center"],
+        let array: [[String: Any]] = [
+            ["clsName": "HomeViewController", "title": "Home", "imageName": "home",
+             "visitorInfo": ["imageName": "", "message": "Follow people, find out what is going on."]],
+            ["clsName": "MessageViewController", "title": "Message", "imageName": "message_center",
+             "visitorInfo": ["imageName": "visitordiscover_image_message", "message": "Log in, people can comment on your post, send message to you, and recevie notification."]],
             ["clsName": "UIViewController"],
-            ["clsName": "DiscoverViewController", "title": "Discover", "imageName": "discover"],
-            ["clsName": "ProfileViewController", "title": "Profile", "imageName": "profile"],
+            ["clsName": "DiscoverViewController", "title": "Discover", "imageName": "discover",
+            "visitorInfo": ["imageName": "visitordiscover_image_message", "message": "Log in, you will get all newest, hottest Weibo, and never missing with fashion."]],
+            ["clsName": "ProfileViewController", "title": "Profile", "imageName": "profile",
+            "visitorInfo": ["imageName": "visitordiscover_image_profile", "message": "Log in, your Weibo, photos, personal information will be displayed here. Show yourself!"]],
         ]
+        
+        //(array as NSArray).write(toFile: "/Users/mac/Desktop/Demo.plist", atomically: true)
         
         var arrayM = [UIViewController]()
         for dic in array {
@@ -77,10 +83,14 @@ extension MainTabBarController {
     /// Using dictionary to create child view controller
     /// - Parameter dict: dictionary info[claName, title, imageName
     /// - return: UIViewController
-    private func controller(dict: [String: String]) -> UIViewController {
+    private func controller(dict: [String: Any]) -> UIViewController {
         
         // 1. get dictionary info
-        guard let claName = dict["clsName"], let title = dict["title"], let imageName = dict["imageName"], let cls = NSClassFromString(Bundle.main.namespace + "." + claName) as? UIViewController.Type else {
+        guard let claName = dict["clsName"] as? String,
+            let title = dict["title"] as? String,
+            let imageName = dict["imageName"] as? String,
+            let cls = NSClassFromString(Bundle.main.namespace + "." + claName) as? BaseViewController.Type,
+            let visitorDict = dict["visitorInfo"] as? [String: String] else {
             return UIViewController()
         }
         
@@ -89,6 +99,7 @@ extension MainTabBarController {
         let vc = cls.init()
         
         vc.title = title
+        vc.visitorInfoDictionary = visitorDict
         
         //3. set tab bar image icon
         vc.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
