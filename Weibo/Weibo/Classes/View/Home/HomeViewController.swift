@@ -31,10 +31,8 @@ class HomeViewController: BaseViewController {
         
         let params = ["access_token": accessToken]
         
-        NetworkManager.sharedManager.get(urlString, parameters: params, headers: nil, progress: nil, success: { (_, json) in
+        NetworkManager.sharedManager.request(URLString: urlString, parameters: params as [String : AnyObject]) { (json, success) in
             print(json)
-        }) { (nil, error) in
-            print(error)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
