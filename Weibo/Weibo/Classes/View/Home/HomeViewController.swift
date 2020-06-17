@@ -24,6 +24,19 @@ class HomeViewController: BaseViewController {
     // load data
     override func loadData() {
         
+        // use network manager to request data from weibo open resouce
+        
+        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
+        let accessToken = "2.006x3OyGLjRemC0c1b20b1c50PvsR5"
+        
+        let params = ["access_token": accessToken]
+        
+        NetworkManager.sharedManager.get(urlString, parameters: params, headers: nil, progress: nil, success: { (_, json) in
+            print(json)
+        }) { (nil, error) in
+            print(error)
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
             for i in 0..<10 {
                 if self?.isPullUp ?? false {
