@@ -23,6 +23,7 @@ class VisitorView: UIView {
             
             // home page no need set icon image
             if imageName.isEmpty {
+                startAnimation()
                 return
             }
             
@@ -42,6 +43,19 @@ class VisitorView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // rotating icon animation
+    private func startAnimation() {
+        let anim = CABasicAnimation(keyPath: "transform.rotation")
+        anim.toValue = 2 * CGFloat.pi
+        anim.duration = 15
+        
+        // usually used for cycling image rotation animation.
+        anim.isRemovedOnCompletion = false
+        
+        // add animation to icon view
+        iconView.layer.add(anim, forKey: nil)
     }
     
     // MARK: - private properties
