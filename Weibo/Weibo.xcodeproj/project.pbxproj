@@ -37,6 +37,7 @@
 		23CD605524996E280018030B /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CD605424996E280018030B /* VisitorView.swift */; };
 		23CD60572499CC2D0018030B /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 23CD60562499CC2D0018030B /* main.json */; };
 		23CD605A249AC4380018030B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CD6059249AC4380018030B /* NetworkManager.swift */; };
+		23CD605C249ACCC50018030B /* NetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CD605B249ACCC50018030B /* NetworkManager+Extension.swift */; };
 		6A7ED35F7E72B6B04186CB7A /* Pods_Weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0EBE50D2EB38A92C86AF97 /* Pods_Weibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		23CD605424996E280018030B /* VisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		23CD60562499CC2D0018030B /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		23CD6059249AC4380018030B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		23CD605B249ACCC50018030B /* NetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		67951C2B5FC30601823F3DBE /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		71BE83273191E2BC41C297AA /* Pods-Weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.release.xcconfig"; path = "Target Support Files/Pods-Weibo/Pods-Weibo.release.xcconfig"; sourceTree = "<group>"; };
 		8A0EBE50D2EB38A92C86AF97 /* Pods_Weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				23CD6059249AC4380018030B /* NetworkManager.swift */,
+				23CD605B249ACCC50018030B /* NetworkManager+Extension.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				2345A449249739A800821DF9 /* UIScreen+CZAddition.m in Sources */,
 				2345A44D249739A800821DF9 /* UIButton+CZAddition.m in Sources */,
 				2345A4232496F64C00821DF9 /* BaseViewController.swift in Sources */,
+				23CD605C249ACCC50018030B /* NetworkManager+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
