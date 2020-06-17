@@ -65,7 +65,7 @@ extension BaseViewController {
 extension BaseViewController {
     
     /// set up base view controller UI
-    @objc func setupUI() {
+    private func setupUI() {
         view.backgroundColor = UIColor.white
         
         setupNavigationBar()
@@ -79,10 +79,14 @@ extension BaseViewController {
         visitoerView.registerButton.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
         visitoerView.loginButton.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         view.insertSubview(visitoerView, belowSubview: navigationBar)
+        
+        // set up navigation bar item
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "Register", target: self, action: #selector(handleRegister), isBackButton: false)
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "Login", target: self, action: #selector(handleLogin))
     }
     
-    /// set up table view
-    fileprivate func setupTableView() {
+    /// set up table view, when user login
+    @objc func setupTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         
         view.insertSubview(tableView!, belowSubview: navigationBar)
@@ -110,6 +114,7 @@ extension BaseViewController {
         
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.darkGray]
+        navigationBar.tintColor = .orange
     }
 }
 

@@ -66,9 +66,8 @@ extension HomeViewController {
 extension HomeViewController {
     
     /// set up base view controller UI
-    override func setupUI() {
-        super.setupUI()
-        
+    @objc override func setupTableView() {
+        super.setupTableView()
         // swift call OC return instanceType method cant know if it is optional
         navItem.leftBarButtonItem = UIBarButtonItem(title: "Friend", target: self, action: #selector(showFriends))
         
