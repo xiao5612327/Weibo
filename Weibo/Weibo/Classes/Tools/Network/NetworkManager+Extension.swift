@@ -15,12 +15,12 @@ extension NetworkManager {
         
         // use network manager to request data from weibo open resouce
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let accessToken = "2.006x3OyGLjRemC0c1b20b1c50PvsR5"
         
-        let params = ["access_token": accessToken]
-        
-        request(URLString: urlString, parameters: params as [String : AnyObject]) { (json, success) in
-
+        tokenRequest(URLString: urlString, parameters: nil) { (json, success) in
+            guard let json = json else {
+                completion(nil, success)
+                return
+            }
             let result = (json as! [String: AnyObject])["statuses"] as? [[String: AnyObject]]
             completion(result, success)
         }
