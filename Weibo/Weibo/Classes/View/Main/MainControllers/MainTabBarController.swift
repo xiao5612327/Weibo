@@ -12,15 +12,20 @@ import UIKit
 /// main view controller
 class MainTabBarController: UITabBarController {
 
+    // timer
+    private var timer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupChildController()
         setupComposeButton()
         
-        NetworkManager.sharedManager.unreadCount { (count) in
-            print(count)
-        }
+        setupTimer()
+    }
+    
+    deinit {
+        timer?.invalidate()
     }
     
     
@@ -41,6 +46,22 @@ class MainTabBarController: UITabBarController {
     /// custom button
     private lazy var composeButton: UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
 
+}
+
+
+// MARK: timer method setup timer
+extension MainTabBarController {
+    
+    func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func updateTimer() {
+        NetworkManager.sharedManager.unreadCount { (count) in
+            print(count)
+            self.tabBar.items?.first?.badgeValue = count == 0 ? nil : "\(count)"
+        }
+    }
 }
 
 //Mark: Setup main screen
