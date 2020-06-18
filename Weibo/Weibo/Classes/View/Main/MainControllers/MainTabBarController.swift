@@ -17,6 +17,10 @@ class MainTabBarController: UITabBarController {
 
         setupChildController()
         setupComposeButton()
+        
+        NetworkManager.sharedManager.unreadCount { (count) in
+            print(count)
+        }
     }
     
     

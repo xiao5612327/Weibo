@@ -18,7 +18,7 @@ class StatusListViewModel {
     
     private var pullupErrorTime = 0
     
-    func loadStatus(pullup: Bool, completion: @escaping (_ isSuccess: Bool, hasMorePull: Bool) -> ()) {
+    func loadStatus(pullup: Bool, completion: @escaping (_ isSuccess: Bool, _ hasMorePull: Bool) -> ()) {
         
         if pullup && pullupErrorTime >= maxPullupTryTimes {
             completion(true, false)
