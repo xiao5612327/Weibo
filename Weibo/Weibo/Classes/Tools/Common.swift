@@ -11,3 +11,8 @@ import Foundation
 // MARK: - global notification defination
 
 let UserShouldLoginNotification = "UserShouldLoginNotification"
+
+// MARK: - Application info
+let AppKey = "2551131061"
+let AppSecret = "ee1cfaddbe387c8454cd2cb7e92a80fe"
+let RedirectURL = "http://baidu.com"

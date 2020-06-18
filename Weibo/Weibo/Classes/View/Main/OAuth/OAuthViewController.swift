@@ -19,6 +19,16 @@ class OAuthViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
         setupNavigationBar()
+        
+        let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(AppKey)&redirect_uri=\(RedirectURL)"
+        
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        
+        webView.load(request)
     }
     
     private func setupNavigationBar() {
