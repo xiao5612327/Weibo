@@ -22,12 +22,13 @@ class MainTabBarController: UITabBarController {
         setupComposeButton()
         
         setupTimer()
+        delegate = self
     }
     
+    // important to destroy timer
     deinit {
         timer?.invalidate()
     }
-    
     
     /// using code to controller device interf aceOrientation.
     // why here? when parent viewcontroller apply this one
@@ -48,6 +49,26 @@ class MainTabBarController: UITabBarController {
 
 }
 
+// MARK: tab bar delegate
+extension MainTabBarController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        let idx = (children as NSArray).index(of: viewController)
+        
+        if selectedIndex == 0 && idx == selectedIndex {
+            let nav = children[0] as! UINavigationController
+            let vc = nav.children[0] as! HomeViewController
+            
+            vc.tableView?.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
+        
+        
+        return !viewController.isMember(of: UIViewController.self)
+    }
+
+}
+
 
 // MARK: timer method setup timer
 extension MainTabBarController {
@@ -60,6 +81,7 @@ extension MainTabBarController {
         NetworkManager.sharedManager.unreadCount { (count) in
             print(count)
             self.tabBar.items?.first?.badgeValue = count == 0 ? nil : "\(count)"
+            UIApplication.shared.applicationIconBadgeNumber = count
         }
     }
 }
@@ -73,7 +95,7 @@ extension MainTabBarController {
         tabBar.addSubview(composeButton)
         
         let count = CGFloat(children.count)
-        let w = tabBar.bounds.width / count - 1
+        let w = tabBar.bounds.width / count
         
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)
         
@@ -142,3 +164,5 @@ extension MainTabBarController {
         return nav
     }
 }
+
+
