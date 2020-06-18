@@ -52,7 +52,7 @@ class BaseViewController: UIViewController {
 extension BaseViewController {
     
     @objc func handleRegister() {
-        print(1)
+        NotificationCenter.default.post(name: NSNotification.Name(UserShouldLoginNotification), object: nil)
     }
     
     @objc func handleLogin() {

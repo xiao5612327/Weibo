@@ -23,11 +23,26 @@ class MainTabBarController: UITabBarController {
         
         setupTimer()
         delegate = self
+        
+        regitsterNotifcation()
     }
     
     // important to destroy timer
     deinit {
         timer?.invalidate()
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    fileprivate func regitsterNotifcation() {
+        // register notification
+        NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(UserShouldLoginNotification), object: nil)
+    }
+    
+    @objc private func userLogin() {
+        
+        let vc = OAuthViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true, completion: nil)
     }
     
     /// using code to controller device interf aceOrientation.
