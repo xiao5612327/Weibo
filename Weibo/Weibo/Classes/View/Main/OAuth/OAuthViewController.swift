@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import SVProgressHUD
 
 class OAuthViewController: UIViewController {
 
@@ -18,6 +19,10 @@ class OAuthViewController: UIViewController {
         view = webView
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
+        
+        webView.navigationDelegate = self
+        webView.scrollView.isScrollEnabled = false
+        
         setupNavigationBar()
         
         let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(AppKey)&redirect_uri=\(RedirectURL)"
@@ -42,14 +47,44 @@ class OAuthViewController: UIViewController {
     @objc private func autoFill() {
         let js = "document.getElementById('userId').value = 'xiao5612327';" + "document.getElementById('passwd').value = 'aaaa'"
         
-        webView.evaluateJavaScript(js) { (json, error) in
-            print(error)
-            print(json)
-        }
-    } 
+        webView.evaluateJavaScript(js) { (json, error) in }
+    }
     
     @objc private func handleBack() {
+        SVProgressHUD.dismiss()
         dismiss(animated: true, completion: nil)
     }
 
+}
+
+extension OAuthViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        print("should start with", navigationAction.request.url?.absoluteString as Any)
+        let url = navigationAction.request.url
+        if url?.absoluteString.hasPrefix(RedirectURL) == false {
+            decisionHandler(WKNavigationActionPolicy.allow)
+            return
+        }
+        
+        
+        if url?.query?.hasPrefix("code=") == false {
+            decisionHandler(WKNavigationActionPolicy.cancel)
+            handleBack()
+            return
+        }
+        
+        let code = url?.query?.substring(from: "code=".endIndex) ?? ""
+        
+        print(code)
+        
+        decisionHandler(WKNavigationActionPolicy.cancel)
+    }
+
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        SVProgressHUD.show()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        SVProgressHUD.dismiss()
+    }
 }
