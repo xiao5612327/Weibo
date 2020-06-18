@@ -12,13 +12,23 @@ import UIKit
 /// main view controller
 class MainTabBarController: UITabBarController {
 
+    // timer
+    private var timer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupChildController()
         setupComposeButton()
+        
+        setupTimer()
+        delegate = self
     }
     
+    // important to destroy timer
+    deinit {
+        timer?.invalidate()
+    }
     
     /// using code to controller device interf aceOrientation.
     // why here? when parent viewcontroller apply this one
@@ -36,9 +46,43 @@ class MainTabBarController: UITabBarController {
     //MARK: - private button
     /// custom button
     private lazy var composeButton: UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
+
+}
+
+// MARK: tab bar delegate
+extension MainTabBarController: UITabBarControllerDelegate {
     
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        print(item)
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        let idx = (children as NSArray).index(of: viewController)
+        
+        if selectedIndex == 0 && idx == selectedIndex {
+            let nav = children[0] as! UINavigationController
+            let vc = nav.children[0] as! HomeViewController
+            
+            vc.tableView?.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
+        
+        
+        return !viewController.isMember(of: UIViewController.self)
+    }
+
+}
+
+
+// MARK: timer method setup timer
+extension MainTabBarController {
+    
+    func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func updateTimer() {
+        NetworkManager.sharedManager.unreadCount { (count) in
+            print(count)
+            self.tabBar.items?.first?.badgeValue = count == 0 ? nil : "\(count)"
+            UIApplication.shared.applicationIconBadgeNumber = count
+        }
     }
 }
 
@@ -51,7 +95,7 @@ extension MainTabBarController {
         tabBar.addSubview(composeButton)
         
         let count = CGFloat(children.count)
-        let w = tabBar.bounds.width / count - 1
+        let w = tabBar.bounds.width / count
         
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)
         
@@ -60,14 +104,25 @@ extension MainTabBarController {
     
     /// set up all child controllers
     private func setupChildController() {
-        let array = [
-            ["clsName": "HomeViewController", "title": "Home", "imageName": "home"],
-            ["clsName": "MessageViewController", "title": "Message", "imageName": "message_center"],
-            ["clsName": "UIViewController"],
-            ["clsName": "DiscoverViewController", "title": "Discover", "imageName": "discover"],
-            ["clsName": "ProfileViewController", "title": "Profile", "imageName": "profile"],
-        ]
+        // 0. get application setting json data from disk
+        let docDic = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let jsonPath = (docDic as NSString).appendingPathComponent("main.json")
         
+        var data = NSData(contentsOfFile: jsonPath)
+        
+        if data == nil {
+            let path = Bundle.main.path(forResource: "main.json", ofType: nil)
+            data = NSData(contentsOfFile: path!)
+        }
+        // get setup ui json data from bundle
+        // 1. get path from bundle for ui json file
+        // 2. load nsdata
+        // 3. deserialization
+        guard let array = try? JSONSerialization.jsonObject(with: data! as Data, options: []) as? [[String: Any]] else {
+            return
+        }
+        
+        // loop through array to create viewcontrollers
         var arrayM = [UIViewController]()
         for dic in array {
             arrayM.append(controller(dict: dic))
@@ -80,10 +135,14 @@ extension MainTabBarController {
     /// Using dictionary to create child view controller
     /// - Parameter dict: dictionary info[claName, title, imageName
     /// - return: UIViewController
-    private func controller(dict: [String: String]) -> UIViewController {
+    private func controller(dict: [String: Any]) -> UIViewController {
         
         // 1. get dictionary info
-        guard let claName = dict["clsName"], let title = dict["title"], let imageName = dict["imageName"], let cls = NSClassFromString(Bundle.main.namespace + "." + claName) as? UIViewController.Type else {
+        guard let claName = dict["clsName"] as? String,
+            let title = dict["title"] as? String,
+            let imageName = dict["imageName"] as? String,
+            let cls = NSClassFromString(Bundle.main.namespace + "." + claName) as? BaseViewController.Type,
+            let visitorDict = dict["visitorInfo"] as? [String: String] else {
             return UIViewController()
         }
         
@@ -92,6 +151,7 @@ extension MainTabBarController {
         let vc = cls.init()
         
         vc.title = title
+        vc.visitorInfoDictionary = visitorDict
         
         //3. set tab bar image icon
         vc.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
@@ -104,3 +164,5 @@ extension MainTabBarController {
         return nav
     }
 }
+
+

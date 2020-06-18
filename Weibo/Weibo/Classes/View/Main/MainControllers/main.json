@@ -1,0 +1,41 @@
+[
+  {
+    "title" : "Home",
+    "clsName" : "HomeViewController",
+    "imageName" : "home",
+    "visitorInfo" : {
+      "message" : "Follow people, find out what is going on.",
+      "imageName" : ""
+    }
+  },
+  {
+    "title" : "Message",
+    "clsName" : "MessageViewController",
+    "imageName" : "message_center",
+    "visitorInfo" : {
+      "message" : "Log in, people can comment on your post, send message to you, and recevie notification.",
+      "imageName" : "visitordiscover_image_message"
+    }
+  },
+  {
+    "clsName" : "UIViewController"
+  },
+  {
+    "imageName" : "discover",
+    "visitorInfo" : {
+      "message" : "Log in, you will get all newest, hottest Weibo, and never missing with fashion.",
+      "imageName" : "visitordiscover_image_message"
+    },
+    "clsName" : "DiscoverViewController",
+    "title" : "Discover"
+  },
+  {
+    "clsName" : "ProfileViewController",
+    "visitorInfo" : {
+      "imageName" : "visitordiscover_image_profile",
+      "message" : "Log in, your Weibo, photos, personal information will be displayed here. Show yourself!"
+    },
+    "title" : "Profile",
+    "imageName" : "profile"
+  }
+]

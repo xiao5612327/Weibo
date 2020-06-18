@@ -13,7 +13,7 @@ fileprivate let cellId = "cellId"
 class HomeViewController: BaseViewController {
 
     // load weibo data array
-    private lazy var statusList = [String]()
+    private lazy var listViewModel = StatusListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +23,17 @@ class HomeViewController: BaseViewController {
     
     // load data
     override func loadData() {
-        
-        for i in 0..<50 {
-            statusList.insert(i.description, at: 0)
+
+        listViewModel.loadStatus(pullup: isPullUp) { (success, hasMorePullup) in
+            
+            self.isPullUp = false
+            self.refreshController?.endRefreshing()
+            
+            if hasMorePullup {
+                self.tableView?.reloadData()
+            }
         }
+
     }
     
     
@@ -41,13 +48,12 @@ class HomeViewController: BaseViewController {
 // MARK: table view data source
 extension HomeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return statusList.count
+        return listViewModel.statusList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        cell.textLabel?.text = statusList[indexPath.row]
+        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
         return cell
     }
 }
@@ -56,9 +62,8 @@ extension HomeViewController {
 extension HomeViewController {
     
     /// set up base view controller UI
-    override func setupUI() {
-        super.setupUI()
-        
+    @objc override func setupTableView() {
+        super.setupTableView()
         // swift call OC return instanceType method cant know if it is optional
         navItem.leftBarButtonItem = UIBarButtonItem(title: "Friend", target: self, action: #selector(showFriends))
         
