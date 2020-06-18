@@ -11,12 +11,20 @@ import Foundation
 // MARK: package weibo open resounce api
 extension NetworkManager {
     
-    func statusList(completion: @escaping (_ list: [[String: AnyObject]]?, _ isSuccess: Bool) -> ()) {
+    
+    /// Get json data from weibo
+    /// - Parameters:
+    ///   - since_id: get post before this id
+    ///   - max_id: get post after this id
+    ///   - completion: return result
+    func statusList(since_id: Int64 = 0, max_id: Int64 = 0, completion: @escaping (_ list: [[String: AnyObject]]?, _ isSuccess: Bool) -> ()) {
         
         // use network manager to request data from weibo open resouce
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         
-        tokenRequest(URLString: urlString, parameters: nil) { (json, success) in
+        let parameters = ["since_id": since_id, "max_id": max_id > 0 ? max_id - 1 : 0]
+        
+        tokenRequest(URLString: urlString, parameters: parameters as [String : AnyObject]) { (json, success) in
             guard let json = json else {
                 completion(nil, success)
                 return
