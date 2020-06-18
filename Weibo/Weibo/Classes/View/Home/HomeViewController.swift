@@ -23,11 +23,7 @@ class HomeViewController: BaseViewController {
     
     // load data
     override func loadData() {
-        
-        NetworkManager.sharedManager.statusList { (result, success) in
-            print(result)
-        }
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
             for i in 0..<10 {
                 if self?.isPullUp ?? false {
