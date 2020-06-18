@@ -13,7 +13,6 @@ import UIKit
 class BaseViewController: UIViewController {
 
     // User log in status
-    var userLogon = true
     var visitorInfoDictionary: [String: String]?
     
     // MARK: - tableview property
@@ -32,7 +31,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadData()
+        NetworkManager.sharedManager.userLogon ? loadData() : ()
     }
     
     
@@ -69,7 +68,7 @@ extension BaseViewController {
         view.backgroundColor = UIColor.white
         
         setupNavigationBar()
-        userLogon ? setupTableView() : setupVisitorView()
+        NetworkManager.sharedManager.userLogon ? setupTableView() : setupVisitorView()
     }
     
     private func setupVisitorView() {

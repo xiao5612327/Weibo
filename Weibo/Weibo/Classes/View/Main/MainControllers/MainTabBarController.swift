@@ -74,10 +74,15 @@ extension MainTabBarController: UITabBarControllerDelegate {
 extension MainTabBarController {
     
     func setupTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     @objc private func updateTimer() {
+        
+        if !NetworkManager.sharedManager.userLogon {
+            return
+        }
+        
         NetworkManager.sharedManager.unreadCount { (count) in
             print(count)
             self.tabBar.items?.first?.badgeValue = count == 0 ? nil : "\(count)"

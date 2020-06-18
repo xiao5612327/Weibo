@@ -19,8 +19,13 @@ class NetworkManager: AFHTTPSessionManager {
     // alloc at static / constant
     static let sharedManager = NetworkManager()
     
-    var accessToken: String? = "2.006x3OyGLjRemC0c1b20b1c50PvsR5"
+    var accessToken: String?// = "2.006x3OyGLjRemC0c1b20b1c50PvsR5"
+    
     var uid: String? = "6386801995"
+    
+    var userLogon: Bool {
+        return accessToken != nil
+    }
     
     func tokenRequest(method: HTTPMethod = .GET, URLString: String, parameters: [String: AnyObject]?, completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> ()) {
         

@@ -23,7 +23,6 @@ class HomeViewController: BaseViewController {
     
     // load data
     override func loadData() {
-
         listViewModel.loadStatus(pullup: isPullUp) { (success, hasMorePullup) in
             
             self.isPullUp = false
@@ -33,7 +32,6 @@ class HomeViewController: BaseViewController {
                 self.tableView?.reloadData()
             }
         }
-
     }
     
     
