@@ -12,12 +12,13 @@ import YYModel
 class Status: NSObject {
     
     // Int64
-    var id: Int64 = 0
+    @objc var id: Int64 = 0
     
     // text info for weibo
-    var text: String?
+    @objc var text: String?
     
     override var description: String {
         return yy_modelDescription()
     }
+
 }

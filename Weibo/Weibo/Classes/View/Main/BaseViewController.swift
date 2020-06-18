@@ -13,7 +13,7 @@ import UIKit
 class BaseViewController: UIViewController {
 
     // User log in status
-    var userLogon = false
+    var userLogon = true
     var visitorInfoDictionary: [String: String]?
     
     // MARK: - tableview property

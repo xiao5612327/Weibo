@@ -13,7 +13,7 @@ fileprivate let cellId = "cellId"
 class HomeViewController: BaseViewController {
 
     // load weibo data array
-    private lazy var statusList = [String]()
+    private lazy var listViewModel = StatusListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +24,12 @@ class HomeViewController: BaseViewController {
     // load data
     override func loadData() {
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-            for i in 0..<10 {
-                if self?.isPullUp ?? false {
-                    self?.statusList.append("\(i.description)" + " pull up")
-                }else {
-                    self?.statusList.insert(i.description, at: 0)
-                }
-            }
-            self?.isPullUp = false
-
-            self?.refreshController?.endRefreshing()
-            self?.tableView?.reloadData()
+        listViewModel.loadStatus { (success) in
+            self.isPullUp = false
+            self.refreshController?.endRefreshing()
+            self.tableView?.reloadData()
         }
+
     }
     
     
@@ -51,13 +44,12 @@ class HomeViewController: BaseViewController {
 // MARK: table view data source
 extension HomeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return statusList.count
+        return listViewModel.statusList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        cell.textLabel?.text = statusList[indexPath.row]
+        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
         return cell
     }
 }
