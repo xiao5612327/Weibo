@@ -24,10 +24,14 @@ class HomeViewController: BaseViewController {
     // load data
     override func loadData() {
 
-        listViewModel.loadStatus(pullup: isPullUp) { (success) in
+        listViewModel.loadStatus(pullup: isPullUp) { (success, hasMorePullup) in
+            
             self.isPullUp = false
             self.refreshController?.endRefreshing()
-            self.tableView?.reloadData()
+            
+            if hasMorePullup {
+                self.tableView?.reloadData()
+            }
         }
 
     }

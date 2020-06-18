@@ -8,12 +8,22 @@
 
 import Foundation
 
+private let maxPullupTryTimes = 3
+
+
 // Weibo list view model
 class StatusListViewModel {
     
     lazy var statusList = [Status]()
     
-    func loadStatus(pullup: Bool, completion: @escaping (_ isSuccess: Bool) -> ()) {
+    private var pullupErrorTime = 0
+    
+    func loadStatus(pullup: Bool, completion: @escaping (_ isSuccess: Bool, hasMorePull: Bool) -> ()) {
+        
+        if pullup && pullupErrorTime >= maxPullupTryTimes {
+            completion(true, false)
+            return
+        }
         
         // get since_id
         let since_id = pullup ? 0 : statusList.first?.id ?? 0
@@ -24,7 +34,7 @@ class StatusListViewModel {
             // 1. dictionary to array
             guard let array = NSArray.yy_modelArray(with: Status.self, json: list ?? []) as? [Status] else {
                 
-                completion(success)
+                completion(success, false)
                 return
             }
             
@@ -37,8 +47,15 @@ class StatusListViewModel {
                 self.statusList = array + self.statusList
             }
             
+            // check pull up return result and array is empty, increase pull up error
+            if pullup && array.isEmpty {
+                self.pullupErrorTime += 1
+                completion(true, false)
+                return
+            }
+            
             // 3. call back
-            completion(success)
+            completion(success, true)
         }
     }
 }
