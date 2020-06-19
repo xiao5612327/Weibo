@@ -77,7 +77,17 @@ extension OAuthViewController: WKNavigationDelegate {
         
         print(code)
         // request access_token
-        NetworkManager.sharedManager.loadAccessToken(code: code)
+        NetworkManager.sharedManager.loadAccessToken(code: code) { (success) in
+            if success {
+                SVProgressHUD.showInfo(withStatus: "Log in successed!")
+                
+                NotificationCenter.default.post(name: NSNotification.Name(UserLoginSuccessNotification), object: nil)
+                
+                self.handleBack()
+            }else {
+                SVProgressHUD.showInfo(withStatus: "Log in failed!")
+            }
+        }
         
         decisionHandler(WKNavigationActionPolicy.cancel)
     }

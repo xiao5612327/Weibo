@@ -11,6 +11,7 @@ import Foundation
 // MARK: - global notification defination
 
 let UserShouldLoginNotification = "UserShouldLoginNotification"
+let UserLoginSuccessNotification = "UserLoginSuccessNotification"
 
 // MARK: - Application info
 let AppKey = "2551131061"

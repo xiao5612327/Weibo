@@ -32,6 +32,12 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         NetworkManager.sharedManager.userLogon ? loadData() : ()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loginSuccess), name: NSNotification.Name(UserLoginSuccessNotification), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     
@@ -51,12 +57,22 @@ class BaseViewController: UIViewController {
 // MARK: visitor view buttons target
 extension BaseViewController {
     
+    // log in success. change ui
+    @objc private func loginSuccess() {
+        
+        // when using view's getter. if view == nil,
+        // view controller view re-call loadView -> viewDidLoad()
+        view = nil
+        
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc func handleRegister() {
-        NotificationCenter.default.post(name: NSNotification.Name(UserShouldLoginNotification), object: nil)
+
     }
     
     @objc func handleLogin() {
-        print(2)
+        NotificationCenter.default.post(name: NSNotification.Name(UserShouldLoginNotification), object: nil)
     }
 }
 
