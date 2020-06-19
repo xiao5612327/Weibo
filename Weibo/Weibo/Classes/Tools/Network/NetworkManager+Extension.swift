@@ -71,6 +71,7 @@ extension NetworkManager {
                 return
             }
             self.user.yy_modelSet(with: json)
+            self.user.saveAccount()
         }
         
     }
