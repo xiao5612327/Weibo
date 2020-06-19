@@ -41,6 +41,16 @@ class UserAccount: NSObject {
         
         // convert json data user account object
         yy_modelSet(with: dict)
+        
+        // check access token is expired
+        if expiresDate?.compare(Date()) != .orderedDescending {
+            print("token is expired")
+            
+            access_token = nil
+            uid = nil
+            
+            try? FileManager.default.removeItem(atPath: path)
+        }
     }
     
     /*

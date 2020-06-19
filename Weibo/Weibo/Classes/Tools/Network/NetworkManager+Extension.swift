@@ -55,7 +55,12 @@ extension NetworkManager {
 
 extension NetworkManager {
     
-    func loadAccessToken(code: String) {
+    
+    /// request for access token
+    /// - Parameters:
+    ///   - code: OAuth code
+    ///   - completion: return successfull
+    func loadAccessToken(code: String, completion: @escaping (_ success: Bool)->()) {
         let urlStirng = "https://api.weibo.com/oauth2/access_token"
         
         let parameters = ["client_id": AppKey,
@@ -68,10 +73,12 @@ extension NetworkManager {
         request(method: .POST, URLString: urlStirng, parameters: parameters as [String : AnyObject]) { (json, success) in
             
             guard let json = json as? [String: AnyObject] else {
+                completion(false)
                 return
             }
             self.user.yy_modelSet(with: json)
             self.user.saveAccount()
+            completion(true)
         }
         
     }
