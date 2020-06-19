@@ -11,10 +11,10 @@ import UIKit
 class UserAccount: NSObject {
     
     // access token
-    var access_token: String?
+    var access_token: String? = "2.006x3OyGLjRemC6b9a8eb27d0Ei2C9"
     
     // user id
-    var uid: String?
+    var uid: String? = "6386801995"
     
     // access token expire time
     var expires_in: TimeInterval = 0

@@ -37,7 +37,7 @@ extension NetworkManager {
     // return weibo unread count
     func unreadCount(completion: @escaping (_ count: Int) -> ()) {
         
-        guard let uid = uid else {
+        guard let uid = user.uid else {
             return
         }
         let urlString = "https://api.weibo.com/2/remind/unread_count.json"
@@ -70,9 +70,7 @@ extension NetworkManager {
             guard let json = json as? [String: AnyObject] else {
                 return
             }
-            self.accessToken = json["access_token"] as? String
-            self.uid = json["uid"] as? String
-            print(json)
+            self.user.yy_modelSet(with: json)
         }
         
     }

@@ -23,12 +23,10 @@ class NetworkManager: AFHTTPSessionManager {
         return sm
     }()
     
-    var accessToken: String? = "2.006x3OyGLjRemC6b9a8eb27d0Ei2C9"
-    
-    var uid: String? = "6386801995"
+    lazy var user = UserAccount()
     
     var userLogon: Bool {
-        return accessToken != nil
+        return user.access_token != nil
     }
     
     func tokenRequest(method: HTTPMethod = .GET, URLString: String, parameters: [String: AnyObject]?, completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> ()) {
@@ -36,7 +34,7 @@ class NetworkManager: AFHTTPSessionManager {
         // deal with token dictionary
         
         // 0. check token = nil, if nil return
-        guard let token = accessToken else {
+        guard let token = user.access_token else {
             completion(nil, false)
             
             // FIXME: alert user to login
