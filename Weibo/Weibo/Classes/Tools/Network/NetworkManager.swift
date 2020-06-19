@@ -17,9 +17,13 @@ enum HTTPMethod {
 class NetworkManager: AFHTTPSessionManager {
     
     // alloc at static / constant
-    static let sharedManager = NetworkManager()
+    static let sharedManager: NetworkManager = {
+        let sm = NetworkManager()
+        sm.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        return sm
+    }()
     
-    var accessToken: String?// = "2.006x3OyGLjRemC0c1b20b1c50PvsR5"
+    var accessToken: String? = "2.006x3OyGLjRemC6b9a8eb27d0Ei2C9"
     
     var uid: String? = "6386801995"
     

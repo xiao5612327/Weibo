@@ -51,3 +51,29 @@ extension NetworkManager {
         }
     }
 }
+
+
+extension NetworkManager {
+    
+    func loadAccessToken(code: String) {
+        let urlStirng = "https://api.weibo.com/oauth2/access_token"
+        
+        let parameters = ["client_id": AppKey,
+                          "client_secret": AppSecret,
+                          "grant_type": "authorization_code",
+                          "code": code,
+                          "redirect_uri": RedirectURL]
+        
+        
+        request(method: .POST, URLString: urlStirng, parameters: parameters as [String : AnyObject]) { (json, success) in
+            
+            guard let json = json as? [String: AnyObject] else {
+                return
+            }
+            self.accessToken = json["access_token"] as? String
+            self.uid = json["uid"] as? String
+            print(json)
+        }
+        
+    }
+}

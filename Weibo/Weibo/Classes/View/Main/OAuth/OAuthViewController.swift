@@ -76,6 +76,8 @@ extension OAuthViewController: WKNavigationDelegate {
         let code = url?.query?.substring(from: "code=".endIndex) ?? ""
         
         print(code)
+        // request access_token
+        NetworkManager.sharedManager.loadAccessToken(code: code)
         
         decisionHandler(WKNavigationActionPolicy.cancel)
     }
