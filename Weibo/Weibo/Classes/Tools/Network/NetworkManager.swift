@@ -37,7 +37,8 @@ class NetworkManager: AFHTTPSessionManager {
         guard let token = user.access_token else {
             completion(nil, false)
             
-            // FIXME: alert user to login
+            // alert user to login
+            NotificationCenter.default.post(name: NSNotification.Name(UserShouldLoginNotification), object: self)
             return
         }
         
@@ -71,7 +72,8 @@ class NetworkManager: AFHTTPSessionManager {
             if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                print("Token expired or forbidden ")
                 
-                // FIXME: send notification
+                // send notification
+                NotificationCenter.default.post(name: NSNotification.Name(UserShouldLoginNotification), object: "bad token")
             }
             completion(nil, false)
         }

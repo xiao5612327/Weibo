@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 
 /// main view controller
 class MainTabBarController: UITabBarController {
@@ -38,11 +38,25 @@ class MainTabBarController: UITabBarController {
         NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(UserShouldLoginNotification), object: nil)
     }
     
-    @objc private func userLogin() {
+    @objc private func userLogin(n: Notification) {
         
-        let vc = OAuthViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        present(nav, animated: true, completion: nil)
+        // check if n.object has value
+        // if no alert user to re log in
+        var time = DispatchTime.now()
+        
+        if n.object != nil {
+            SVProgressHUD.setDefaultMaskType(.gradient)
+            SVProgressHUD.showInfo(withStatus: "Please log in.")
+            time = DispatchTime.now() + 2
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            SVProgressHUD.setDefaultMaskType(.clear)
+            let vc = OAuthViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            self.present(nav, animated: true, completion: nil)
+        }
+
     }
     
     /// using code to controller device interf aceOrientation.

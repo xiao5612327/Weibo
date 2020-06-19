@@ -8,6 +8,8 @@
 
 import UIKit
 import UserNotifications
+import SVProgressHUD
+import AFNetworking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,12 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // get authorization for push notification.
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .carPlay, .sound]) { (success, error) in
-            print(error)
-        }
 
+        setupAdditions()
+        
         return true
     }
 
@@ -40,5 +39,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+extension AppDelegate {
+    private func setupAdditions() {
+        // 1. set svprogressHUD minimum dismiss time
+        SVProgressHUD.setMinimumDismissTimeInterval(1)
+        
+        // 2. set up networking tip
+        AFNetworkActivityIndicatorManager.shared().isEnabled = true
+        
+        // 3. ask for push notification authrization
+        // get authorization for push notification.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .carPlay, .sound]) { (success, error) in
+            print(error)
+        }
+    }
 }
 
