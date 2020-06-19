@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let accountFile:NSString = "useraccount.json"
+
 class UserAccount: NSObject {
     
     // access token
@@ -29,6 +31,18 @@ class UserAccount: NSObject {
         return yy_modelDescription()
     }
     
+    override init() {
+        super.init()
+        
+        // get user account json file from disk
+        guard let path = accountFile.cz_appendDocumentDir(), let data = NSData(contentsOfFile: path), let dict = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [String: AnyObject] else {
+            return
+        }
+        
+        // convert json data user account object
+        yy_modelSet(with: dict)
+    }
+    
     /*
      the way to save user account
      1. setting: small
@@ -46,16 +60,11 @@ class UserAccount: NSObject {
         _ = dict.removeValue(forKey: "expires_in")
 
         // 2. dictionary to json data
-        guard let data = try? JSONSerialization.data(withJSONObject: dict, options: []), let fileName = ("useraccount.json" as NSString).cz_appendDocumentDir() else {
+        guard let data = try? JSONSerialization.data(withJSONObject: dict, options: []), let fileName = accountFile.cz_appendDocumentDir() else {
             return
         }
         
         // 3. write to disk
         (data as NSData).write(toFile: fileName, atomically: true)
-        
-        
-        
-        
-        
     }
 }
