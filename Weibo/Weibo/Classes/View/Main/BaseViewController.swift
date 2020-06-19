@@ -60,6 +60,10 @@ extension BaseViewController {
     // log in success. change ui
     @objc private func loginSuccess() {
         
+        // reset navigation bar items
+        navItem.leftBarButtonItem = nil
+        navItem.rightBarButtonItem = nil
+        
         // when using view's getter. if view == nil,
         // view controller view re-call loadView -> viewDidLoad()
         view = nil
@@ -111,7 +115,9 @@ extension BaseViewController {
         tableView?.delegate = self
         
         // set table view content insert
-        tableView?.contentInset = UIEdgeInsets(top: topStatusBarHeight + navigationBar.bounds.height, left: 0, bottom: (tabBarController?.tabBar.frame.height ?? 0), right: 0)
+        let insert = UIEdgeInsets(top: topStatusBarHeight + navigationBar.bounds.height, left: 0, bottom: (tabBarController?.tabBar.frame.height ?? 0), right: 0)
+        tableView?.contentInset = insert
+        tableView?.scrollIndicatorInsets = tableView!.contentInset
         
         // setup refresh controller
         refreshController = UIRefreshControl()
