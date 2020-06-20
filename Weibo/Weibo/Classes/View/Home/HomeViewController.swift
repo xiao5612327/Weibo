@@ -72,13 +72,9 @@ extension HomeViewController {
     }
     
     private func setupNavTitle() {
-        let button = UIButton.cz_textButton("Xiaoping", fontSize: 17, normalColor: .darkGray, highlightedColor: .black)
-        
-        button?.setImage(UIImage(named: "navigationbar_arrow_down"), for: .normal)
-        button?.setImage(UIImage(named: "navigationbar_arrow_up"), for: .selected)
-        button?.addTarget(self, action: #selector(clickTileButton), for: .touchUpInside)
+        let button = TitleButton(title: "Xiao")
+        button.addTarget(self, action: #selector(clickTileButton(btn:)), for: .touchUpInside)
         navItem.titleView = button
-        
     }
     
     @objc private func clickTileButton(btn: UIButton) {

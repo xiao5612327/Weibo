@@ -32,6 +32,7 @@ extension NetworkManager {
             let result = (json as! [String: AnyObject])["statuses"] as? [[String: AnyObject]]
             completion(result, success)
         }
+
     }
     
     // return weibo unread count

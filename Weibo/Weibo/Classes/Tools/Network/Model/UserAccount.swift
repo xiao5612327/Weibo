@@ -39,6 +39,7 @@ class UserAccount: NSObject {
         
         // get user account json file from disk
         guard let path = accountFile.cz_appendDocumentDir(), let data = NSData(contentsOfFile: path), let dict = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [String: AnyObject] else {
+            
             return
         }
         
@@ -67,7 +68,7 @@ class UserAccount: NSObject {
     func saveAccount() {
         
         // 1. model convert to dictionary
-        var dict = self.yy_modelToJSONObject() as? [String: AnyObject] ?? [:]
+        var dict = self.yy_modelToJSONData() as? [String: AnyObject] ?? [:]
         
         // remove unused key
         _ = dict.removeValue(forKey: "expires_in")
