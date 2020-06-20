@@ -237,6 +237,7 @@
 		2345A41D2496F58800821DF9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				238AE273249E8BD40000BD23 /* NewFeature */,
 				236A4B1F249BEBE900954366 /* OAuth */,
 				2345A45A24987D6D00821DF9 /* MainControllers */,
 				2345A4222496F64C00821DF9 /* BaseViewController.swift */,
@@ -319,6 +320,13 @@
 				236A4B26249DC82100954366 /* TitleButton.swift */,
 			);
 			path = TitleButton;
+			sourceTree = "<group>";
+		};
+		238AE273249E8BD40000BD23 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewFeature;
 			sourceTree = "<group>";
 		};
 		23CD605324996E0B0018030B /* VisitorView */ = {
