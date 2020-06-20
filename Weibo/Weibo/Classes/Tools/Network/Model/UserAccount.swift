@@ -27,6 +27,9 @@ class UserAccount: NSObject {
     
     var expiresDate: Date?
     
+    var screen_name: String?
+    var avatar_large: String?
+    
     override var description: String {
         return yy_modelDescription()
     }

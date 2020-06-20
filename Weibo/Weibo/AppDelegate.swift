@@ -44,7 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     private func setupAdditions() {
         // 1. set svprogressHUD minimum dismiss time
-        SVProgressHUD.setMinimumDismissTimeInterval(1)
+        // FIXME: this will crash the app
+//        SVProgressHUD.setMinimumDismissTimeInterval(1.0)
         
         // 2. set up networking tip
         AFNetworkActivityIndicatorManager.shared().isEnabled = true
