@@ -67,5 +67,21 @@ extension HomeViewController {
         navItem.leftBarButtonItem = UIBarButtonItem(title: "Friend", target: self, action: #selector(showFriends))
         
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        
+        setupNavTitle()
+    }
+    
+    private func setupNavTitle() {
+        let button = UIButton.cz_textButton("Xiaoping", fontSize: 17, normalColor: .darkGray, highlightedColor: .black)
+        
+        button?.setImage(UIImage(named: "navigationbar_arrow_down"), for: .normal)
+        button?.setImage(UIImage(named: "navigationbar_arrow_up"), for: .selected)
+        button?.addTarget(self, action: #selector(clickTileButton), for: .touchUpInside)
+        navItem.titleView = button
+        
+    }
+    
+    @objc private func clickTileButton(btn: UIButton) {
+        btn.isSelected = !btn.isSelected
     }
 }
