@@ -22,6 +22,8 @@ class MainTabBarController: UITabBarController {
         setupComposeButton()
         
         setupTimer()
+        
+        setupNewFeatureViews()
         delegate = self
         
         regitsterNotifcation()
@@ -76,6 +78,42 @@ class MainTabBarController: UITabBarController {
     /// custom button
     private lazy var composeButton: UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
 
+}
+
+extension MainTabBarController {
+    
+    private func setupNewFeatureViews() {
+        
+        // 0. check user login
+        if !NetworkManager.sharedManager.userLogon {
+            return
+        }
+        
+        // 1. check version is updated
+        
+        // 2. if is updated, display new feature, otherwise display welcome page
+        let v = isNewVersion ? NewFeatureView() : WelcomeView.welcomeView()
+        // 3. add new views
+        
+        view.addSubview(v)
+    }
+    
+    private var isNewVersion: Bool {
+        // 1. get current version number
+        let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        
+        print("currentVersion: ", currentVersion)
+        
+        // 2 load the version number saved at document(itune backup)
+        let filePath: String = ("version" as NSString).cz_appendDocumentDir()
+        let sandBoxVersion = (try? String(contentsOfFile: filePath))
+        print("sandBox: ", sandBoxVersion)
+        // 3. get current version save at sandbox
+        _ = try? currentVersion.write(toFile: filePath, atomically: true, encoding: .utf8)
+
+        // 4. return 2 version if same.
+        return currentVersion != sandBoxVersion
+    }
 }
 
 // MARK: tab bar delegate
