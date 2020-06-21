@@ -17,20 +17,28 @@ enum HTTPMethod {
 class NetworkManager: AFHTTPSessionManager {
     
     // alloc at static / constant
-    static let sharedManager = NetworkManager()
+    static let sharedManager: NetworkManager = {
+        let sm = NetworkManager()
+        sm.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        return sm
+    }()
     
-    var accessToken: String? = "2.006x3OyGLjRemC0c1b20b1c50PvsR5"
-    var uid: String? = "6386801995"
+    lazy var userAccount = UserAccount()
+    
+    var userLogon: Bool {
+        return userAccount.access_token != nil
+    }
     
     func tokenRequest(method: HTTPMethod = .GET, URLString: String, parameters: [String: AnyObject]?, completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> ()) {
         
         // deal with token dictionary
         
         // 0. check token = nil, if nil return
-        guard let token = accessToken else {
+        guard let token = userAccount.access_token else {
             completion(nil, false)
             
-            // FIXME: alert user to login
+            // alert user to login
+            NotificationCenter.default.post(name: NSNotification.Name(UserShouldLoginNotification), object: self)
             return
         }
         
@@ -64,7 +72,8 @@ class NetworkManager: AFHTTPSessionManager {
             if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                print("Token expired or forbidden ")
                 
-                // FIXME: send notification
+                // send notification
+                NotificationCenter.default.post(name: NSNotification.Name(UserShouldLoginNotification), object: "bad token")
             }
             completion(nil, false)
         }

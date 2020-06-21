@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 
 /// main view controller
 class MainTabBarController: UITabBarController {
@@ -22,12 +22,43 @@ class MainTabBarController: UITabBarController {
         setupComposeButton()
         
         setupTimer()
+        
+        setupNewFeatureViews()
         delegate = self
+        
+        regitsterNotifcation()
     }
     
     // important to destroy timer
     deinit {
         timer?.invalidate()
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    fileprivate func regitsterNotifcation() {
+        // register notification
+        NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(UserShouldLoginNotification), object: nil)
+    }
+    
+    @objc private func userLogin(n: Notification) {
+        
+        // check if n.object has value
+        // if no alert user to re log in
+        var time = DispatchTime.now()
+        
+        if n.object != nil {
+            SVProgressHUD.setDefaultMaskType(.gradient)
+            SVProgressHUD.showInfo(withStatus: "Please log in.")
+            time = DispatchTime.now() + 2
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            SVProgressHUD.setDefaultMaskType(.clear)
+            let vc = OAuthViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            self.present(nav, animated: true, completion: nil)
+        }
+
     }
     
     /// using code to controller device interf aceOrientation.
@@ -47,6 +78,42 @@ class MainTabBarController: UITabBarController {
     /// custom button
     private lazy var composeButton: UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
 
+}
+
+extension MainTabBarController {
+    
+    private func setupNewFeatureViews() {
+        
+        // 0. check user login
+        if !NetworkManager.sharedManager.userLogon {
+            return
+        }
+        
+        // 1. check version is updated
+        
+        // 2. if is updated, display new feature, otherwise display welcome page
+        let v = isNewVersion ? NewFeatureView.newFeatureView() : WelcomeView.welcomeView()
+        // 3. add new views
+        
+        view.addSubview(v)
+    }
+    
+    private var isNewVersion: Bool {
+        // 1. get current version number
+        let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        
+        print("currentVersion: ", currentVersion)
+        
+        // 2 load the version number saved at document(itune backup)
+        let filePath: String = ("version" as NSString).cz_appendDocumentDir()
+        let sandBoxVersion = (try? String(contentsOfFile: filePath))
+        print("sandBox: ", sandBoxVersion)
+        // 3. get current version save at sandbox
+        _ = try? currentVersion.write(toFile: filePath, atomically: true, encoding: .utf8)
+
+        // 4. return 2 version if same.
+        return currentVersion == sandBoxVersion
+    }
 }
 
 // MARK: tab bar delegate
@@ -74,10 +141,15 @@ extension MainTabBarController: UITabBarControllerDelegate {
 extension MainTabBarController {
     
     func setupTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     @objc private func updateTimer() {
+        
+        if !NetworkManager.sharedManager.userLogon {
+            return
+        }
+        
         NetworkManager.sharedManager.unreadCount { (count) in
             print(count)
             self.tabBar.items?.first?.badgeValue = count == 0 ? nil : "\(count)"

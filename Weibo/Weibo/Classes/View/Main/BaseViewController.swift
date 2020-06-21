@@ -13,7 +13,6 @@ import UIKit
 class BaseViewController: UIViewController {
 
     // User log in status
-    var userLogon = true
     var visitorInfoDictionary: [String: String]?
     
     // MARK: - tableview property
@@ -32,7 +31,13 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadData()
+        NetworkManager.sharedManager.userLogon ? loadData() : ()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loginSuccess), name: NSNotification.Name(UserLoginSuccessNotification), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     
@@ -52,12 +57,26 @@ class BaseViewController: UIViewController {
 // MARK: visitor view buttons target
 extension BaseViewController {
     
+    // log in success. change ui
+    @objc private func loginSuccess() {
+        
+        // reset navigation bar items
+        navItem.leftBarButtonItem = nil
+        navItem.rightBarButtonItem = nil
+        
+        // when using view's getter. if view == nil,
+        // view controller view re-call loadView -> viewDidLoad()
+        view = nil
+        
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc func handleRegister() {
-        print(1)
+
     }
     
     @objc func handleLogin() {
-        print(2)
+        NotificationCenter.default.post(name: NSNotification.Name(UserShouldLoginNotification), object: nil)
     }
 }
 
@@ -69,7 +88,7 @@ extension BaseViewController {
         view.backgroundColor = UIColor.white
         
         setupNavigationBar()
-        userLogon ? setupTableView() : setupVisitorView()
+        NetworkManager.sharedManager.userLogon ? setupTableView() : setupVisitorView()
     }
     
     private func setupVisitorView() {
@@ -96,7 +115,9 @@ extension BaseViewController {
         tableView?.delegate = self
         
         // set table view content insert
-        tableView?.contentInset = UIEdgeInsets(top: topStatusBarHeight + navigationBar.bounds.height, left: 0, bottom: (tabBarController?.tabBar.frame.height ?? 0), right: 0)
+        let insert = UIEdgeInsets(top: topStatusBarHeight + navigationBar.bounds.height, left: 0, bottom: (tabBarController?.tabBar.frame.height ?? 0), right: 0)
+        tableView?.contentInset = insert
+        tableView?.scrollIndicatorInsets = tableView!.contentInset
         
         // setup refresh controller
         refreshController = UIRefreshControl()

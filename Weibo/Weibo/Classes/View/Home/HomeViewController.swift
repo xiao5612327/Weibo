@@ -18,12 +18,12 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIColor.cz_random()
+        
         // Do any additional setup after loading the view.
     }
     
     // load data
     override func loadData() {
-
         listViewModel.loadStatus(pullup: isPullUp) { (success, hasMorePullup) in
             
             self.isPullUp = false
@@ -33,7 +33,6 @@ class HomeViewController: BaseViewController {
                 self.tableView?.reloadData()
             }
         }
-
     }
     
     
@@ -68,5 +67,17 @@ extension HomeViewController {
         navItem.leftBarButtonItem = UIBarButtonItem(title: "Friend", target: self, action: #selector(showFriends))
         
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        
+        setupNavTitle()
+    }
+    
+    private func setupNavTitle() {
+        let button = TitleButton(title: "Xiao")
+        button.addTarget(self, action: #selector(clickTileButton(btn:)), for: .touchUpInside)
+        navItem.titleView = button
+    }
+    
+    @objc private func clickTileButton(btn: UIButton) {
+        btn.isSelected = !btn.isSelected
     }
 }

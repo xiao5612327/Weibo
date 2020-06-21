@@ -34,6 +34,14 @@
 		2345A4552497F4ED00821DF9 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A4542497F4ED00821DF9 /* Bundle+Extensions.swift */; };
 		2345A4572498322B00821DF9 /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A4562498322B00821DF9 /* UIBarButtonItem+Extensions.swift */; };
 		2345A45924983A1100821DF9 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A45824983A1100821DF9 /* UIViewController+Extensions.swift */; };
+		236A4B1E249BEA7800954366 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A4B1D249BEA7800954366 /* Common.swift */; };
+		236A4B21249BEC0900954366 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A4B20249BEC0900954366 /* OAuthViewController.swift */; };
+		236A4B24249C3A2C00954366 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A4B23249C3A2C00954366 /* UserAccount.swift */; };
+		236A4B27249DC82100954366 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A4B26249DC82100954366 /* TitleButton.swift */; };
+		238AE275249E8CC80000BD23 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238AE274249E8CC80000BD23 /* WelcomeView.swift */; };
+		238AE277249E8CFD0000BD23 /* NewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238AE276249E8CFD0000BD23 /* NewFeatureView.swift */; };
+		238AE27B249F1F2E0000BD23 /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238AE27A249F1F2E0000BD23 /* WelcomeView.xib */; };
+		238AE27D249F27210000BD23 /* NewFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238AE27C249F27210000BD23 /* NewFeatureView.xib */; };
 		23CD605524996E280018030B /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CD605424996E280018030B /* VisitorView.swift */; };
 		23CD60572499CC2D0018030B /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 23CD60562499CC2D0018030B /* main.json */; };
 		23CD605A249AC4380018030B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CD6059249AC4380018030B /* NetworkManager.swift */; };
@@ -87,6 +95,14 @@
 		2345A4542497F4ED00821DF9 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		2345A4562498322B00821DF9 /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
 		2345A45824983A1100821DF9 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		236A4B1D249BEA7800954366 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		236A4B20249BEC0900954366 /* OAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		236A4B23249C3A2C00954366 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		236A4B26249DC82100954366 /* TitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
+		238AE274249E8CC80000BD23 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		238AE276249E8CFD0000BD23 /* NewFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureView.swift; sourceTree = "<group>"; };
+		238AE27A249F1F2E0000BD23 /* WelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
+		238AE27C249F27210000BD23 /* NewFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewFeatureView.xib; sourceTree = "<group>"; };
 		23CD605424996E280018030B /* VisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		23CD60562499CC2D0018030B /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		23CD6059249AC4380018030B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -168,6 +184,7 @@
 				23CD6058249AC4030018030B /* Network */,
 				2345A4532497F4BA00821DF9 /* Extensions */,
 				2345A42D249739A800821DF9 /* Additions */,
+				236A4B1D249BEA7800954366 /* Common.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -195,6 +212,7 @@
 		2345A4192496F58800821DF9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				236A4B25249DC80500954366 /* TitleButton */,
 				2345A42A2496F6CD00821DF9 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -227,6 +245,8 @@
 		2345A41D2496F58800821DF9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				238AE273249E8BD40000BD23 /* NewFeature */,
+				236A4B1F249BEBE900954366 /* OAuth */,
 				2345A45A24987D6D00821DF9 /* MainControllers */,
 				2345A4222496F64C00821DF9 /* BaseViewController.swift */,
 				23CD605324996E0B0018030B /* VisitorView */,
@@ -286,6 +306,41 @@
 			path = MainControllers;
 			sourceTree = "<group>";
 		};
+		236A4B1F249BEBE900954366 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				236A4B20249BEC0900954366 /* OAuthViewController.swift */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		236A4B22249C3A1200954366 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				236A4B23249C3A2C00954366 /* UserAccount.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		236A4B25249DC80500954366 /* TitleButton */ = {
+			isa = PBXGroup;
+			children = (
+				236A4B26249DC82100954366 /* TitleButton.swift */,
+			);
+			path = TitleButton;
+			sourceTree = "<group>";
+		};
+		238AE273249E8BD40000BD23 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				238AE274249E8CC80000BD23 /* WelcomeView.swift */,
+				238AE27A249F1F2E0000BD23 /* WelcomeView.xib */,
+				238AE276249E8CFD0000BD23 /* NewFeatureView.swift */,
+				238AE27C249F27210000BD23 /* NewFeatureView.xib */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
 		23CD605324996E0B0018030B /* VisitorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +352,7 @@
 		23CD6058249AC4030018030B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				236A4B22249C3A1200954366 /* Model */,
 				23CD6059249AC4380018030B /* NetworkManager.swift */,
 				23CD605B249ACCC50018030B /* NetworkManager+Extension.swift */,
 			);
@@ -381,8 +437,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2345A4112496EF3200821DF9 /* Main.storyboard in Resources */,
+				238AE27B249F1F2E0000BD23 /* WelcomeView.xib in Resources */,
 				2345A4072496E60B00821DF9 /* LaunchScreen.storyboard in Resources */,
 				23CD60572499CC2D0018030B /* main.json in Resources */,
+				238AE27D249F27210000BD23 /* NewFeatureView.xib in Resources */,
 				2345A4042496E60B00821DF9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,9 +498,12 @@
 				2345A4572498322B00821DF9 /* UIBarButtonItem+Extensions.swift in Sources */,
 				2345A44C249739A800821DF9 /* NSString+CZPath.m in Sources */,
 				2345A447249739A800821DF9 /* UIColor+CZAddition.m in Sources */,
+				236A4B27249DC82100954366 /* TitleButton.swift in Sources */,
+				238AE275249E8CC80000BD23 /* WelcomeView.swift in Sources */,
 				2345A45924983A1100821DF9 /* UIViewController+Extensions.swift in Sources */,
 				2345A4292496F6C700821DF9 /* DiscoverViewController.swift in Sources */,
 				2345A44B249739A800821DF9 /* NSString+CZBase64.m in Sources */,
+				238AE277249E8CFD0000BD23 /* NewFeatureView.swift in Sources */,
 				2345A4212496F61700821DF9 /* MainNavigationController.swift in Sources */,
 				2345A44A249739A800821DF9 /* UILabel+CZAddition.m in Sources */,
 				2345A44E249739A800821DF9 /* NSObject+CZRuntime.m in Sources */,
@@ -460,10 +521,13 @@
 				2345A452249739A800821DF9 /* NSArray+Log.m in Sources */,
 				2345A41F2496F5E200821DF9 /* MainTabBarController.swift in Sources */,
 				2345A450249739A800821DF9 /* NSString+CZHash.m in Sources */,
+				236A4B24249C3A2C00954366 /* UserAccount.swift in Sources */,
 				23CD605E249AE79B0018030B /* Status.swift in Sources */,
 				2345A449249739A800821DF9 /* UIScreen+CZAddition.m in Sources */,
+				236A4B21249BEC0900954366 /* OAuthViewController.swift in Sources */,
 				2345A44D249739A800821DF9 /* UIButton+CZAddition.m in Sources */,
 				2345A4232496F64C00821DF9 /* BaseViewController.swift in Sources */,
+				236A4B1E249BEA7800954366 /* Common.swift in Sources */,
 				23CD605C249ACCC50018030B /* NetworkManager+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,6 +672,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = xiaoping.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
@@ -628,6 +693,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = xiaoping.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
