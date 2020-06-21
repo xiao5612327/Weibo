@@ -14,17 +14,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad_background" translatesAutoresizingMaskIntoConstraints="NO" id="fAs-JX-XgJ">
-                    <rect key="frame" x="0.0" y="20" width="414" height="856"/>
+                    <rect key="frame" x="0.0" y="20" width="414" height="876"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_default_big" translatesAutoresizingMaskIntoConstraints="NO" id="1tx-qN-kpz">
                     <rect key="frame" x="164.5" y="527" width="85" height="85"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="85" id="1dB-dy-D5W"/>
-                        <constraint firstAttribute="height" constant="85" id="H4g-Vs-FyD"/>
+                        <constraint firstAttribute="width" constant="85" id="PZQ-b3-o4i"/>
+                        <constraint firstAttribute="height" constant="85" id="iF2-Cl-Q3r"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎归来" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaI-o3-Vgz">
-                    <rect key="frame" x="172" y="638" width="70" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎归来" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeE-QB-mxo">
+                    <rect key="frame" x="172" y="646" width="70" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -32,21 +32,22 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="PaI-o3-Vgz" firstAttribute="top" secondItem="1tx-qN-kpz" secondAttribute="bottom" constant="26" id="4bU-1n-Rpd"/>
-                <constraint firstItem="PaI-o3-Vgz" firstAttribute="centerX" secondItem="1tx-qN-kpz" secondAttribute="centerX" id="61a-Ma-Hjp"/>
-                <constraint firstItem="fAs-JX-XgJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7EL-Y8-JE2"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="1tx-qN-kpz" secondAttribute="bottom" constant="250" id="Apn-sO-WsV"/>
-                <constraint firstAttribute="bottom" secondItem="fAs-JX-XgJ" secondAttribute="bottom" constant="20" symbolic="YES" id="J7h-uZ-g6I"/>
-                <constraint firstItem="fAs-JX-XgJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="N3s-I0-HKU"/>
-                <constraint firstItem="fAs-JX-XgJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="UAp-4n-jCc"/>
-                <constraint firstItem="1tx-qN-kpz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ush-sE-Xyz"/>
-                <constraint firstItem="fAs-JX-XgJ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Vq2-RR-NId"/>
-                <constraint firstAttribute="bottom" secondItem="fAs-JX-XgJ" secondAttribute="bottom" constant="20" symbolic="YES" id="WGt-xB-akQ"/>
-                <constraint firstItem="fAs-JX-XgJ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="bNN-e5-ar5"/>
-                <constraint firstItem="fAs-JX-XgJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="wHo-ux-u2q"/>
+                <constraint firstItem="fAs-JX-XgJ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="3ha-z6-lUH"/>
+                <constraint firstItem="zeE-QB-mxo" firstAttribute="top" secondItem="1tx-qN-kpz" secondAttribute="bottom" constant="34" id="AQy-pS-7GW"/>
+                <constraint firstItem="fAs-JX-XgJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="UCU-1p-tAQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="1tx-qN-kpz" secondAttribute="bottom" constant="250" id="cva-tP-dNh"/>
+                <constraint firstItem="zeE-QB-mxo" firstAttribute="centerX" secondItem="1tx-qN-kpz" secondAttribute="centerX" id="f4V-ap-T8w"/>
+                <constraint firstItem="fAs-JX-XgJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ppg-o9-kh1"/>
+                <constraint firstAttribute="bottom" secondItem="fAs-JX-XgJ" secondAttribute="bottom" id="wvD-Up-tDF"/>
+                <constraint firstItem="1tx-qN-kpz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zgI-fF-XeJ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
+            <connections>
+                <outlet property="bottomCons" destination="cva-tP-dNh" id="6Ua-jc-Hd6"/>
+                <outlet property="imageView" destination="1tx-qN-kpz" id="Lt6-Ns-OVf"/>
+                <outlet property="tipLabel" destination="zeE-QB-mxo" id="3B0-hW-PNT"/>
+            </connections>
+            <point key="canvasLocation" x="380" y="123"/>
         </view>
     </objects>
     <resources>
