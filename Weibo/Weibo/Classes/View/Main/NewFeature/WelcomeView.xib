@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,21 +10,22 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WelcomeView" customModule="Weibo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad_background" translatesAutoresizingMaskIntoConstraints="NO" id="fAs-JX-XgJ">
-                    <rect key="frame" x="0.0" y="20" width="414" height="876"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad_background" id="JnC-aL-ZR2">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_default_big" translatesAutoresizingMaskIntoConstraints="NO" id="1tx-qN-kpz">
-                    <rect key="frame" x="164.5" y="527" width="85" height="85"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_default_big" translatesAutoresizingMaskIntoConstraints="NO" id="DpU-sG-uox">
+                    <rect key="frame" x="145" y="382" width="85" height="85"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="85" id="PZQ-b3-o4i"/>
-                        <constraint firstAttribute="height" constant="85" id="iF2-Cl-Q3r"/>
+                        <constraint firstAttribute="width" constant="85" id="7eV-Hs-uxI"/>
+                        <constraint firstAttribute="height" constant="85" id="eZN-Hm-O3T"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎归来" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeE-QB-mxo">
-                    <rect key="frame" x="172" y="646" width="70" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎归来" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuI-OF-Zma">
+                    <rect key="frame" x="145" y="517" width="85" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -32,22 +33,19 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fAs-JX-XgJ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="3ha-z6-lUH"/>
-                <constraint firstItem="zeE-QB-mxo" firstAttribute="top" secondItem="1tx-qN-kpz" secondAttribute="bottom" constant="34" id="AQy-pS-7GW"/>
-                <constraint firstItem="fAs-JX-XgJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="UCU-1p-tAQ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="1tx-qN-kpz" secondAttribute="bottom" constant="250" id="cva-tP-dNh"/>
-                <constraint firstItem="zeE-QB-mxo" firstAttribute="centerX" secondItem="1tx-qN-kpz" secondAttribute="centerX" id="f4V-ap-T8w"/>
-                <constraint firstItem="fAs-JX-XgJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ppg-o9-kh1"/>
-                <constraint firstAttribute="bottom" secondItem="fAs-JX-XgJ" secondAttribute="bottom" id="wvD-Up-tDF"/>
-                <constraint firstItem="1tx-qN-kpz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zgI-fF-XeJ"/>
+                <constraint firstItem="DpU-sG-uox" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JHm-I9-YD9"/>
+                <constraint firstItem="YuI-OF-Zma" firstAttribute="trailing" secondItem="DpU-sG-uox" secondAttribute="trailing" id="N2g-7c-tRz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DpU-sG-uox" secondAttribute="bottom" constant="200" id="a6X-2J-lZB"/>
+                <constraint firstItem="YuI-OF-Zma" firstAttribute="centerX" secondItem="DpU-sG-uox" secondAttribute="centerX" id="ftb-LW-AwU"/>
+                <constraint firstItem="YuI-OF-Zma" firstAttribute="top" secondItem="DpU-sG-uox" secondAttribute="bottom" constant="50" id="tnF-Lq-Sls"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="bottomCons" destination="cva-tP-dNh" id="6Ua-jc-Hd6"/>
-                <outlet property="imageView" destination="1tx-qN-kpz" id="Lt6-Ns-OVf"/>
-                <outlet property="tipLabel" destination="zeE-QB-mxo" id="3B0-hW-PNT"/>
+                <outlet property="bottomCons" destination="a6X-2J-lZB" id="L2U-Et-fM5"/>
+                <outlet property="iconImage" destination="DpU-sG-uox" id="yTg-G5-Pad"/>
+                <outlet property="tipLabel" destination="YuI-OF-Zma" id="lCQ-o0-OY6"/>
             </connections>
-            <point key="canvasLocation" x="380" y="123"/>
+            <point key="canvasLocation" x="186.40000000000001" y="183.95802098950526"/>
         </view>
     </objects>
     <resources>

@@ -92,7 +92,7 @@ extension MainTabBarController {
         // 1. check version is updated
         
         // 2. if is updated, display new feature, otherwise display welcome page
-        let v = isNewVersion ? NewFeatureView() : WelcomeView.welcomeView()
+        let v = isNewVersion ? NewFeatureView.newFeatureView() : WelcomeView.welcomeView()
         // 3. add new views
         
         view.addSubview(v)
@@ -112,7 +112,7 @@ extension MainTabBarController {
         _ = try? currentVersion.write(toFile: filePath, atomically: true, encoding: .utf8)
 
         // 4. return 2 version if same.
-        return currentVersion != sandBoxVersion
+        return currentVersion == sandBoxVersion
     }
 }
 

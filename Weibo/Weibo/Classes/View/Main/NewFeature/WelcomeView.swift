@@ -10,10 +10,9 @@ import UIKit
 
 class WelcomeView: UIView {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var bottomCons: NSLayoutConstraint!
-    
     
     class func welcomeView() -> WelcomeView {
         let nib = UINib(nibName: "WelcomeView", bundle: nil)
@@ -26,6 +25,22 @@ class WelcomeView: UIView {
         return v
     }
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+
+    }
+    
+    override func awakeFromNib() {
+        print(NetworkManager.sharedManager.userAccount.avatar_large)
+//        guard let urlString = NetworkManager.sharedManager.userAccount.avatar_large, let url = URL(string: urlString) else {
+//            return
+//        }
+//
+        
+        iconImage.layer.masksToBounds = true
+        iconImage.layer.cornerRadius = iconImage.bounds.height / 2
+    }
+//    
     override func didMoveToWindow() {
         super.didMoveToWindow()
         
@@ -39,9 +54,9 @@ class WelcomeView: UIView {
         }, completion: {( _ ) in
             UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
                 self.tipLabel.alpha = 1
-            }, completion: nil)
+            }, completion: { ( _ ) in
+                self.removeFromSuperview()
+            })
         })
-        
-       
     }
 }
