@@ -16,7 +16,7 @@ class NewFeatureView: UIView {
     
     
     @IBAction func enterStatus(_ sender: Any) {
-        
+        removeFromSuperview()
     }
     
     class func newFeatureView() -> NewFeatureView {
@@ -50,5 +50,30 @@ class NewFeatureView: UIView {
         scrollView.showsVerticalScrollIndicator = false
         
         enterButton.isHidden = true
+        scrollView.delegate = self
+    }
+}
+
+extension NewFeatureView: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        // 1. scroll to last page
+        let index = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        
+        if index == scrollView.subviews.count {
+            self.removeFromSuperview()
+        }
+        
+        enterButton.isHidden = !(index == scrollView.subviews.count - 1)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        enterButton.isHidden = true
+        let page = Int(scrollView.contentOffset.x / scrollView.bounds.width + 0.5)
+        
+        pageControl.currentPage = page
+        print(index)
+        pageControl.isHidden = (page == scrollView.subviews.count)
     }
 }
