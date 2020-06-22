@@ -17,6 +17,8 @@ class Status: NSObject {
     // text info for weibo
     @objc var text: String?
     
+    @objc var user: User?
+    
     override var description: String {
         return yy_modelDescription()
     }

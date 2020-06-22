@@ -10,25 +10,26 @@ import UIKit
 
 private let accountFile:NSString = "useraccount.json"
 
+
 class UserAccount: NSObject {
     
     // access token
-    var access_token: String? = "2.006x3OyGLjRemC6b9a8eb27d0Ei2C9"
+    @objc var access_token: String? = "2.006x3OyGLjRemC6b9a8eb27d0Ei2C9"
     
     // user id
-    var uid: String? = "6386801995"
+    @objc var uid: String? = "6386801995"
     
     // access token expire time
-    var expires_in: TimeInterval = 0 {
+    @objc var expires_in: TimeInterval = 0 {
         didSet {
             expiresDate = Date(timeIntervalSinceNow: expires_in)
         }
     }
     
-    var expiresDate: Date?
-    
-    var screen_name: String? = "user6386801995"
-    var avatar_large: String? = "https://tvax4.sinaimg.cn/crop.0.0.689.689.180/006YemXply8fmqp32vs7mj30j50j643p.jpg?KID=imgbed,tva&Expires=1592809427&ssig=B2A2Taxm79"
+    @objc var expiresDate: Date?
+ 
+    @objc var screen_name: String? = "user6386801995"
+    @objc var avatar_large: String? = "https://tvax4.sinaimg.cn/crop.0.0.689.689.180/006YemXply8fmqp32vs7mj30j50j643p.jpg?KID=imgbed,tva&Expires=1592809427&ssig=B2A2Taxm79"
     
     override var description: String {
         return yy_modelDescription()
@@ -72,7 +73,7 @@ class UserAccount: NSObject {
         
         // remove unused key
         _ = dict.removeValue(forKey: "expires_in")
-
+        
         // 2. dictionary to json data
         guard let data = try? JSONSerialization.data(withJSONObject: dict, options: []), let fileName = accountFile.cz_appendDocumentDir() else {
             return
