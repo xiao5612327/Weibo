@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2306137024A06B3F00240656 /* StatusCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2306136F24A06B3F00240656 /* StatusCellTableViewCell.swift */; };
+		2306137224A06B5200240656 /* StatusNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2306137124A06B5200240656 /* StatusNormalCell.xib */; };
 		2345A3FB2496E60900821DF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A3FA2496E60900821DF9 /* AppDelegate.swift */; };
 		2345A3FD2496E60900821DF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A3FC2496E60900821DF9 /* SceneDelegate.swift */; };
 		2345A4042496E60B00821DF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2345A4032496E60B00821DF9 /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2306136F24A06B3F00240656 /* StatusCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCellTableViewCell.swift; sourceTree = "<group>"; };
+		2306137124A06B5200240656 /* StatusNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusNormalCell.xib; sourceTree = "<group>"; };
 		2345A3F72496E60900821DF9 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2345A3FA2496E60900821DF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2345A3FC2496E60900821DF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +130,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2306136E24A06B1A00240656 /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				2306136F24A06B3F00240656 /* StatusCellTableViewCell.swift */,
+				2306137124A06B5200240656 /* StatusNormalCell.xib */,
+			);
+			path = StatusCell;
+			sourceTree = "<group>";
+		};
 		2345A3EE2496E60900821DF9 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +225,7 @@
 		2345A4192496F58800821DF9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2306136E24A06B1A00240656 /* StatusCell */,
 				236A4B25249DC80500954366 /* TitleButton */,
 				2345A42A2496F6CD00821DF9 /* HomeViewController.swift */,
 			);
@@ -438,6 +452,7 @@
 			files = (
 				2345A4112496EF3200821DF9 /* Main.storyboard in Resources */,
 				238AE27B249F1F2E0000BD23 /* WelcomeView.xib in Resources */,
+				2306137224A06B5200240656 /* StatusNormalCell.xib in Resources */,
 				2345A4072496E60B00821DF9 /* LaunchScreen.storyboard in Resources */,
 				23CD60572499CC2D0018030B /* main.json in Resources */,
 				238AE27D249F27210000BD23 /* NewFeatureView.xib in Resources */,
@@ -513,6 +528,7 @@
 				2345A42B2496F6CD00821DF9 /* HomeViewController.swift in Sources */,
 				2345A451249739A800821DF9 /* NSAttributedString+CZAdditon.m in Sources */,
 				2345A4552497F4ED00821DF9 /* Bundle+Extensions.swift in Sources */,
+				2306137024A06B3F00240656 /* StatusCellTableViewCell.swift in Sources */,
 				23CD605A249AC4380018030B /* NetworkManager.swift in Sources */,
 				23CD6060249AE9DC0018030B /* StatusListViewModel.swift in Sources */,
 				2345A3FD2496E60900821DF9 /* SceneDelegate.swift in Sources */,

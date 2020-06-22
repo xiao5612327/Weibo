@@ -66,8 +66,7 @@ extension HomeViewController {
         // swift call OC return instanceType method cant know if it is optional
         navItem.leftBarButtonItem = UIBarButtonItem(title: "Friend", target: self, action: #selector(showFriends))
         
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        
+        tableView?.register(UINib(nibName: "StatusNormalCell", bundle: nil), forCellReuseIdentifier: cellId)
         setupNavTitle()
     }
     
