@@ -51,8 +51,8 @@ extension HomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! StatusCellTableViewCell
+        cell.fullTextLabel?.text = listViewModel.statusList[indexPath.row].text
         return cell
     }
 }
@@ -67,6 +67,12 @@ extension HomeViewController {
         navItem.leftBarButtonItem = UIBarButtonItem(title: "Friend", target: self, action: #selector(showFriends))
         
         tableView?.register(UINib(nibName: "StatusNormalCell", bundle: nil), forCellReuseIdentifier: cellId)
+        
+        // set rowheight
+        tableView?.rowHeight = UITableView.automaticDimension
+        tableView?.estimatedRowHeight = 300.0
+        tableView?.separatorStyle = .none
+        
         setupNavTitle()
     }
     

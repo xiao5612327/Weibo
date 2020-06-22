@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -53,8 +53,8 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_vip" translatesAutoresizingMaskIntoConstraints="NO" id="M86-yY-VCt">
                         <rect key="frame" x="38" y="67" width="14" height="14"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y61-bB-dWY" userLabel="textLabel">
-                        <rect key="frame" x="11" y="85" width="33" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIN-fM-VsX" userLabel="fullTextLabel">
+                        <rect key="frame" x="11.5" y="89" width="33" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -63,20 +63,20 @@
                 <constraints>
                     <constraint firstItem="M86-yY-VCt" firstAttribute="centerX" secondItem="5Wp-RC-KOf" secondAttribute="trailing" id="B8o-a1-VwE"/>
                     <constraint firstItem="164-3D-fHJ" firstAttribute="centerY" secondItem="4vf-9f-NeF" secondAttribute="centerY" id="BxT-Qe-M2N"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Y61-bB-dWY" secondAttribute="trailing" constant="459" id="IGv-jH-W4P"/>
                     <constraint firstItem="wS7-lg-F0S" firstAttribute="centerY" secondItem="5sa-ql-dWE" secondAttribute="centerY" id="Lc7-FR-sC8"/>
                     <constraint firstItem="fEY-Cg-osZ" firstAttribute="leading" secondItem="tv2-rL-81X" secondAttribute="leading" constant="20" symbolic="YES" id="MqB-1X-7lB"/>
-                    <constraint firstItem="Y61-bB-dWY" firstAttribute="top" secondItem="5Wp-RC-KOf" secondAttribute="bottom" constant="11" id="NgF-Jl-gDw"/>
                     <constraint firstItem="164-3D-fHJ" firstAttribute="leading" secondItem="4vf-9f-NeF" secondAttribute="trailing" constant="8" id="Xaz-Og-rNR"/>
+                    <constraint firstItem="IIN-fM-VsX" firstAttribute="top" secondItem="5Wp-RC-KOf" secondAttribute="bottom" constant="15" id="YJg-cA-Lch"/>
                     <constraint firstItem="4vf-9f-NeF" firstAttribute="leading" secondItem="5sa-ql-dWE" secondAttribute="leading" id="ZqR-oe-clh"/>
                     <constraint firstAttribute="trailing" secondItem="fEY-Cg-osZ" secondAttribute="trailing" constant="20" symbolic="YES" id="c7q-rV-G9i"/>
                     <constraint firstItem="wS7-lg-F0S" firstAttribute="leading" secondItem="5sa-ql-dWE" secondAttribute="trailing" constant="4" id="cHY-6m-Mvw"/>
                     <constraint firstItem="4vf-9f-NeF" firstAttribute="bottom" secondItem="5Wp-RC-KOf" secondAttribute="bottom" id="cIH-AV-cK6"/>
                     <constraint firstItem="5sa-ql-dWE" firstAttribute="leading" secondItem="5Wp-RC-KOf" secondAttribute="trailing" constant="11" id="efL-i1-86u"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Y61-bB-dWY" secondAttribute="bottom" constant="12" id="fXQ-VZ-w5P"/>
                     <constraint firstItem="5sa-ql-dWE" firstAttribute="top" secondItem="5Wp-RC-KOf" secondAttribute="top" constant="4" id="gKH-3D-Sfo"/>
-                    <constraint firstItem="Y61-bB-dWY" firstAttribute="leading" secondItem="5Wp-RC-KOf" secondAttribute="leading" id="ibP-Ll-Vf7"/>
+                    <constraint firstItem="IIN-fM-VsX" firstAttribute="centerX" secondItem="5Wp-RC-KOf" secondAttribute="centerX" id="gRO-uR-OgK"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IIN-fM-VsX" secondAttribute="bottom" constant="15" id="l3t-j5-FHK"/>
                     <constraint firstItem="fEY-Cg-osZ" firstAttribute="top" secondItem="tv2-rL-81X" secondAttribute="top" constant="20" symbolic="YES" id="qYO-Ch-hrj"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IIN-fM-VsX" secondAttribute="trailing" constant="454" id="sQU-D0-xpP"/>
                     <constraint firstItem="5Wp-RC-KOf" firstAttribute="leading" secondItem="tv2-rL-81X" secondAttribute="leading" constant="11" id="sgp-qG-92x"/>
                     <constraint firstItem="5Wp-RC-KOf" firstAttribute="top" secondItem="fEY-Cg-osZ" secondAttribute="bottom" constant="12" id="v44-qd-9pT"/>
                     <constraint firstItem="M86-yY-VCt" firstAttribute="centerY" secondItem="5Wp-RC-KOf" secondAttribute="bottom" id="zZu-5L-YOW"/>
@@ -85,15 +85,13 @@
             <connections>
                 <outlet property="avatar" destination="M86-yY-VCt" id="Hf9-xV-53g"/>
                 <outlet property="from" destination="164-3D-fHJ" id="kEU-eU-J8a"/>
-                <outlet property="fullText" destination="Y61-bB-dWY" id="JSX-i6-YuT"/>
+                <outlet property="fullTextLabel" destination="IIN-fM-VsX" id="ttG-1w-Mp0"/>
                 <outlet property="name" destination="5sa-ql-dWE" id="JL8-Zb-eG7"/>
                 <outlet property="profileImageView" destination="5Wp-RC-KOf" id="QmK-3u-yQ6"/>
-                <outlet property="text" destination="Y61-bB-dWY" id="HFF-En-bT2"/>
-                <outlet property="textLabel" destination="Y61-bB-dWY" id="UWx-AI-Gtf"/>
                 <outlet property="time" destination="4vf-9f-NeF" id="L6D-JN-JiD"/>
                 <outlet property="vipImageView" destination="wS7-lg-F0S" id="R8p-Y2-gb1"/>
             </connections>
-            <point key="canvasLocation" x="15.217391304347828" y="14.0625"/>
+            <point key="canvasLocation" x="15.199999999999999" y="13.493253373313344"/>
         </tableViewCell>
     </objects>
     <resources>

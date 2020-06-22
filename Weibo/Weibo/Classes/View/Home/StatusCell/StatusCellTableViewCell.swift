@@ -17,7 +17,8 @@ class StatusCellTableViewCell: UITableViewCell {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var from: UILabel!
     @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var fullText: UILabel!
+
+    @IBOutlet weak var fullTextLabel: UILabel!
     
     
     override func awakeFromNib() {
