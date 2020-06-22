@@ -67,7 +67,7 @@ class NetworkManager: AFHTTPSessionManager {
         }
         
         let failure = { (task: URLSessionTask?, error: Error?) -> () in
-            print("request failed, error: ", error)
+            print("request failed, error: ", error as Any)
             // handle error code 403
             if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                print("Token expired or forbidden ")

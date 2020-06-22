@@ -31,16 +31,15 @@ class WelcomeView: UIView {
     }
     
     override func awakeFromNib() {
-        print(NetworkManager.sharedManager.userAccount.avatar_large)
-//        guard let urlString = NetworkManager.sharedManager.userAccount.avatar_large, let url = URL(string: urlString) else {
-//            return
-//        }
-//
-        
+        guard let urlString = NetworkManager.sharedManager.userAccount.avatar_large, let url = URL(string: urlString) else {
+            return
+        }
+
+        iconImage.setImageWith(url, placeholderImage: UIImage(named: "avatar_default_big"))
         iconImage.layer.masksToBounds = true
         iconImage.layer.cornerRadius = iconImage.bounds.height / 2
     }
-//    
+
     override func didMoveToWindow() {
         super.didMoveToWindow()
         

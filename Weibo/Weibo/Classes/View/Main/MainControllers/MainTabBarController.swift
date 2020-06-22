@@ -102,17 +102,16 @@ extension MainTabBarController {
         // 1. get current version number
         let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         
-        print("currentVersion: ", currentVersion)
         
         // 2 load the version number saved at document(itune backup)
         let filePath: String = ("version" as NSString).cz_appendDocumentDir()
         let sandBoxVersion = (try? String(contentsOfFile: filePath))
-        print("sandBox: ", sandBoxVersion)
+
         // 3. get current version save at sandbox
         _ = try? currentVersion.write(toFile: filePath, atomically: true, encoding: .utf8)
 
         // 4. return 2 version if same.
-        return currentVersion == sandBoxVersion
+        return currentVersion != sandBoxVersion
     }
 }
 
@@ -128,6 +127,9 @@ extension MainTabBarController: UITabBarControllerDelegate {
             let vc = nav.children[0] as! HomeViewController
             
             vc.tableView?.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            
+            vc.tabBarItem.badgeValue = nil
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
         
         
@@ -151,7 +153,6 @@ extension MainTabBarController {
         }
         
         NetworkManager.sharedManager.unreadCount { (count) in
-            print(count)
             self.tabBar.items?.first?.badgeValue = count == 0 ? nil : "\(count)"
             UIApplication.shared.applicationIconBadgeNumber = count
         }

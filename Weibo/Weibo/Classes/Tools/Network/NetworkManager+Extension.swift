@@ -97,7 +97,7 @@ extension NetworkManager {
             self.userAccount.yy_modelSet(with: json)
             
             self.loadUserInfo { (dict) in
-                
+                print(dict)
                 self.userAccount.yy_modelSet(with: dict)
                 self.userAccount.saveAccount()
                 completion(true)

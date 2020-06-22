@@ -27,8 +27,8 @@ class UserAccount: NSObject {
     
     var expiresDate: Date?
     
-    var screen_name: String?
-    var avatar_large: String?
+    var screen_name: String? = "user6386801995"
+    var avatar_large: String? = "https://tvax4.sinaimg.cn/crop.0.0.689.689.180/006YemXply8fmqp32vs7mj30j50j643p.jpg?KID=imgbed,tva&Expires=1592809427&ssig=B2A2Taxm79"
     
     override var description: String {
         return yy_modelDescription()
@@ -68,7 +68,7 @@ class UserAccount: NSObject {
     func saveAccount() {
         
         // 1. model convert to dictionary
-        var dict = self.yy_modelToJSONData() as? [String: AnyObject] ?? [:]
+        var dict = self.yy_modelToJSONObject() as? [String: AnyObject] ?? [:]
         
         // remove unused key
         _ = dict.removeValue(forKey: "expires_in")

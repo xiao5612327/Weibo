@@ -59,7 +59,7 @@ class OAuthViewController: UIViewController {
 
 extension OAuthViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        print("should start with", navigationAction.request.url?.absoluteString as Any)
+       
         let url = navigationAction.request.url
         if url?.absoluteString.hasPrefix(RedirectURL) == false {
             decisionHandler(WKNavigationActionPolicy.allow)
@@ -75,7 +75,6 @@ extension OAuthViewController: WKNavigationDelegate {
         
         let code = url?.query?.substring(from: "code=".endIndex) ?? ""
         
-        print(code)
         // request access_token
         NetworkManager.sharedManager.loadAccessToken(code: code) { (success) in
             if success {

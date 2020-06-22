@@ -31,7 +31,6 @@ class NewFeatureView: UIView {
     }
 
     override func awakeFromNib() {
-        print(bounds)
         let count = 4
         let rect = UIScreen.main.bounds
         for i in 0..<count {
@@ -73,7 +72,6 @@ extension NewFeatureView: UIScrollViewDelegate {
         let page = Int(scrollView.contentOffset.x / scrollView.bounds.width + 0.5)
         
         pageControl.currentPage = page
-        print(index)
         pageControl.isHidden = (page == scrollView.subviews.count)
     }
 }
