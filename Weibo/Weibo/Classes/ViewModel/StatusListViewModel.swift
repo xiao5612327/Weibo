@@ -14,7 +14,7 @@ private let maxPullupTryTimes = 3
 // Weibo list view model
 class StatusListViewModel {
     
-    lazy var statusList = [Status]()
+    lazy var statusList = [StatusViewModel]()
     
     private var pullupErrorTime = 0
     
@@ -26,16 +26,23 @@ class StatusListViewModel {
         }
         
         // get since_id
-        let since_id = pullup ? 0 : statusList.first?.id ?? 0
-        let max_id = pullup ? statusList.last?.id ?? 0 : 0
+        let since_id = pullup ? 0 : statusList.first?.status.id ?? 0
+        let max_id = pullup ? statusList.last?.status.id ?? 0 : 0
 
         NetworkManager.sharedManager.statusList(since_id: since_id, max_id: max_id) { (list, success) in
             
-            // 1. dictionary to array
-            guard let array = NSArray.yy_modelArray(with: Status.self, json: list ?? []) as? [Status] else {
-                
-                completion(success, false)
+            if !success {
+                completion(false, false)
                 return
+            }
+            
+            var array = [StatusViewModel]()
+            // 1. dictionary to array
+
+            for dict in list ?? [] {
+                if let model = Status.yy_model(with: dict) {
+                    array.append(StatusViewModel(status: model))
+                }
             }
             
             // 2. append data to statusList

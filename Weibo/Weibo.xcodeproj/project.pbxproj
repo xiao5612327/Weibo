@@ -10,6 +10,7 @@
 		2306137024A06B3F00240656 /* StatusCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2306136F24A06B3F00240656 /* StatusCellTableViewCell.swift */; };
 		2306137224A06B5200240656 /* StatusNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2306137124A06B5200240656 /* StatusNormalCell.xib */; };
 		2306137424A077E600240656 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2306137324A077E600240656 /* User.swift */; };
+		2306137624A07D8300240656 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2306137524A07D8300240656 /* StatusViewModel.swift */; };
 		2345A3FB2496E60900821DF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A3FA2496E60900821DF9 /* AppDelegate.swift */; };
 		2345A3FD2496E60900821DF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345A3FC2496E60900821DF9 /* SceneDelegate.swift */; };
 		2345A4042496E60B00821DF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2345A4032496E60B00821DF9 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		2306136F24A06B3F00240656 /* StatusCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCellTableViewCell.swift; sourceTree = "<group>"; };
 		2306137124A06B5200240656 /* StatusNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusNormalCell.xib; sourceTree = "<group>"; };
 		2306137324A077E600240656 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2306137524A07D8300240656 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		2345A3F72496E60900821DF9 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2345A3FA2496E60900821DF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2345A3FC2496E60900821DF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				23CD605F249AE9DC0018030B /* StatusListViewModel.swift */,
+				2306137524A07D8300240656 /* StatusViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				236A4B24249C3A2C00954366 /* UserAccount.swift in Sources */,
 				23CD605E249AE79B0018030B /* Status.swift in Sources */,
 				2345A449249739A800821DF9 /* UIScreen+CZAddition.m in Sources */,
+				2306137624A07D8300240656 /* StatusViewModel.swift in Sources */,
 				236A4B21249BEC0900954366 /* OAuthViewController.swift in Sources */,
 				2345A44D249739A800821DF9 /* UIButton+CZAddition.m in Sources */,
 				2345A4232496F64C00821DF9 /* BaseViewController.swift in Sources */,
