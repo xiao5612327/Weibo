@@ -10,6 +10,16 @@ import UIKit
 
 class StatusCellTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var vipImageView: UIImageView!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var from: UILabel!
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var fullText: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
