@@ -19,6 +19,7 @@ class Status: NSObject {
     
     @objc var user: User?
     
+    
     override var description: String {
         return yy_modelDescription()
     }

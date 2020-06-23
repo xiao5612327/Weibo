@@ -52,6 +52,8 @@
 		23CD605C249ACCC50018030B /* NetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CD605B249ACCC50018030B /* NetworkManager+Extension.swift */; };
 		23CD605E249AE79B0018030B /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CD605D249AE79B0018030B /* Status.swift */; };
 		23CD6060249AE9DC0018030B /* StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CD605F249AE9DC0018030B /* StatusListViewModel.swift */; };
+		23CE2D5D24A18AE20096CF29 /* UIImageView+SDWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE2D5C24A18AE20096CF29 /* UIImageView+SDWebImage.swift */; };
+		23CE2D5F24A18D550096CF29 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE2D5E24A18D550096CF29 /* UIImage+Extensions.swift */; };
 		6A7ED35F7E72B6B04186CB7A /* Pods_Weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0EBE50D2EB38A92C86AF97 /* Pods_Weibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +119,8 @@
 		23CD605B249ACCC50018030B /* NetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		23CD605D249AE79B0018030B /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		23CD605F249AE9DC0018030B /* StatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusListViewModel.swift; sourceTree = "<group>"; };
+		23CE2D5C24A18AE20096CF29 /* UIImageView+SDWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SDWebImage.swift"; sourceTree = "<group>"; };
+		23CE2D5E24A18D550096CF29 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		67951C2B5FC30601823F3DBE /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		71BE83273191E2BC41C297AA /* Pods-Weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.release.xcconfig"; path = "Target Support Files/Pods-Weibo/Pods-Weibo.release.xcconfig"; sourceTree = "<group>"; };
 		8A0EBE50D2EB38A92C86AF97 /* Pods_Weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,6 +316,8 @@
 				2345A4542497F4ED00821DF9 /* Bundle+Extensions.swift */,
 				2345A4562498322B00821DF9 /* UIBarButtonItem+Extensions.swift */,
 				2345A45824983A1100821DF9 /* UIViewController+Extensions.swift */,
+				23CE2D5C24A18AE20096CF29 /* UIImageView+SDWebImage.swift */,
+				23CE2D5E24A18D550096CF29 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -522,6 +528,7 @@
 				236A4B27249DC82100954366 /* TitleButton.swift in Sources */,
 				238AE275249E8CC80000BD23 /* WelcomeView.swift in Sources */,
 				2345A45924983A1100821DF9 /* UIViewController+Extensions.swift in Sources */,
+				23CE2D5F24A18D550096CF29 /* UIImage+Extensions.swift in Sources */,
 				2345A4292496F6C700821DF9 /* DiscoverViewController.swift in Sources */,
 				2345A44B249739A800821DF9 /* NSString+CZBase64.m in Sources */,
 				238AE277249E8CFD0000BD23 /* NewFeatureView.swift in Sources */,
@@ -547,6 +554,7 @@
 				236A4B24249C3A2C00954366 /* UserAccount.swift in Sources */,
 				23CD605E249AE79B0018030B /* Status.swift in Sources */,
 				2345A449249739A800821DF9 /* UIScreen+CZAddition.m in Sources */,
+				23CE2D5D24A18AE20096CF29 /* UIImageView+SDWebImage.swift in Sources */,
 				2306137624A07D8300240656 /* StatusViewModel.swift in Sources */,
 				236A4B21249BEC0900954366 /* OAuthViewController.swift in Sources */,
 				2345A44D249739A800821DF9 /* UIButton+CZAddition.m in Sources */,

@@ -10,6 +10,19 @@ import UIKit
 
 class StatusCellTableViewCell: UITableViewCell {
 
+    var viewModel: StatusViewModel? {
+        didSet {
+            
+            fullTextLabel.text = viewModel?.status.text
+            name.text = viewModel?.status.user?.screen_name
+            
+            vipImageView.image = viewModel?.memberIcon
+            avatar.image = viewModel?.vipIcon
+            
+            profileImageView.cz_setImage(urlString: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named: "avatar_default_big"), isAvatar: true)
+            
+        }
+    }
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var name: UILabel!
