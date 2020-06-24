@@ -19,9 +19,18 @@ class Status: NSObject {
     
     @objc var user: User?
     
+    @objc var reposts_count: Int = 0
+    @objc var comments_count: Int = 0
+    @objc var attitudes_count: Int = 0
+    
+    @objc var pic_urls: [StatusPicture]?
     
     override var description: String {
         return yy_modelDescription()
+    }
+    
+    class func modelContainerPropertyGenericClass() -> [String: AnyClass] {
+        return ["pic_urls" : StatusPicture.self]
     }
 
 }

@@ -19,6 +19,12 @@ class StatusViewModel: CustomStringConvertible {
     var memberIcon: UIImage?
     var vipIcon: UIImage?
     
+    var retweetStr: String?
+    var commentStr: String?
+    var likeStr: String?
+    
+    var pictureViewSize = CGSize()
+    
     init(status: Status) {
         self.status = status
         
@@ -37,5 +43,28 @@ class StatusViewModel: CustomStringConvertible {
         default:
             break
         }
+        
+        retweetStr = getStr(count: status.reposts_count + 123400, defaultSTR: "retweet")
+        commentStr = getStr(count: status.comments_count, defaultSTR: "comment")
+        likeStr = getStr(count: status.attitudes_count, defaultSTR: "like")
+        
+        pictureViewSize = calcPictureViewSize(count: status.pic_urls?.count ?? 0)
+    }
+    
+    
+    private func calcPictureViewSize(count: Int) -> CGSize {
+        return CGSize(width: 100, height: 300)
+    }
+    
+    private func getStr(count: Int, defaultSTR: String) -> String {
+        if count == 0 {
+            return defaultSTR
+        }
+        
+        if count < 1000 {
+            return "\(count)"
+        }
+    
+        return String(format: "%.02f k", CGFloat(count) / 1000.0)
     }
 }
