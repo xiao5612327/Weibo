@@ -27,6 +27,8 @@ class StatusCellTableViewCell: UITableViewCell {
 
             pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
             topCons.constant = viewModel?.pictureViewSize.height == nil ? 0 : 12
+            
+            pictureView.urls = (viewModel?.status.pic_urls ?? []) as [StatusPicture]
         }
     }
     

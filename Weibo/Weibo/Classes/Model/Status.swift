@@ -29,7 +29,7 @@ class Status: NSObject {
         return yy_modelDescription()
     }
     
-    class func modelContainerPropertyGenericClass() -> [String: AnyClass] {
+    @objc class func modelContainerPropertyGenericClass() -> [String: AnyClass] {
         return ["pic_urls" : StatusPicture.self]
     }
 

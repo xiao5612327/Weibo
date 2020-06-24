@@ -10,7 +10,7 @@ import UIKit
 
 class StatusPicture: NSObject {
 
-    var thumbnail_pic: String?
+    @objc var thumbnail_pic: String?
     
     override var description: String {
         return yy_modelDescription()

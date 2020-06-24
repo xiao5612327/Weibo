@@ -48,12 +48,21 @@ class StatusViewModel: CustomStringConvertible {
         commentStr = getStr(count: status.comments_count, defaultSTR: "comment")
         likeStr = getStr(count: status.attitudes_count, defaultSTR: "like")
         
-        pictureViewSize = calcPictureViewSize(count: status.pic_urls?.count ?? 0)
+        pictureViewSize = calcPictureViewSize(count: status.pic_urls?.count)
     }
     
     
-    private func calcPictureViewSize(count: Int) -> CGSize {
-        return CGSize(width: 100, height: 300)
+    private func calcPictureViewSize(count: Int?) -> CGSize {
+        
+        guard let count = count, count != 0 else {
+            return .zero
+        }
+        
+        let row: CGFloat = CGFloat((count - 1) / 3) + 1.0
+        
+        let height = StatusPictureViewOutterMargin + row * StatusPictureViewItemWidth + (row - 1) * StatusPictureViewInnerMargin
+        
+        return CGSize(width: StatusPictureViewWidth, height: height)
     }
     
     private func getStr(count: Int, defaultSTR: String) -> String {

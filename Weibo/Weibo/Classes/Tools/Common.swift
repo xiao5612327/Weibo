@@ -17,3 +17,10 @@ let UserLoginSuccessNotification = "UserLoginSuccessNotification"
 let AppKey = "2551131061"
 let AppSecret = "ee1cfaddbe387c8454cd2cb7e92a80fe"
 let RedirectURL = "http://baidu.com"
+
+let StatusPictureViewOutterMargin: CGFloat = 12
+let StatusPictureViewInnerMargin: CGFloat = 3
+
+let StatusPictureViewWidth = UIScreen.cz_screenWidth() - 2 * StatusPictureViewOutterMargin
+
+let StatusPictureViewItemWidth = StatusPictureViewWidth / 3
