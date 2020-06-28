@@ -12,7 +12,6 @@ class StatusCellTableViewCell: UITableViewCell {
 
     var viewModel: StatusViewModel? {
         didSet {
-            
             fullTextLabel.text = viewModel?.status.text
             name.text = viewModel?.status.user?.screen_name
             
@@ -26,9 +25,11 @@ class StatusCellTableViewCell: UITableViewCell {
             retweet.setTitle(viewModel?.retweetStr, for: .normal)
 
             pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
-            topCons.constant = viewModel?.pictureViewSize.height == nil ? 0 : 12
+//            topCons.constant = viewModel?.pictureViewSize.height == nil ? 0 : 12
             
-            pictureView.urls = (viewModel?.status.pic_urls ?? []) as [StatusPicture]
+            pictureView.urls = viewModel?.picURLs
+            
+            originTextLabel?.text = viewModel?.retweetedText
         }
     }
     
@@ -40,6 +41,7 @@ class StatusCellTableViewCell: UITableViewCell {
     @IBOutlet weak var avatar: UIImageView!
 
     @IBOutlet weak var fullTextLabel: UILabel!
+    @IBOutlet weak var originTextLabel: UILabel?
     @IBOutlet weak var pictureView: StatusPictureView!
     
     @IBOutlet weak var topCons: NSLayoutConstraint!

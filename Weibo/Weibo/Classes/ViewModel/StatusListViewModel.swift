@@ -45,6 +45,7 @@ class StatusListViewModel {
                 }
             }
             
+            print(array)
             // 2. append data to statusList
             // if is pull up, append to end of statusList
             // otherwise, insert into begining of the statusList

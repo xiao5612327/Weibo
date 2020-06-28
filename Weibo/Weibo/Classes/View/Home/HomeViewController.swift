@@ -8,7 +8,8 @@
 
 import UIKit
 
-fileprivate let cellId = "cellId"
+fileprivate let originCellId = "originCellId"
+fileprivate let retweetCellId = "retweetCellId"
 
 class HomeViewController: BaseViewController {
 
@@ -51,8 +52,10 @@ extension HomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! StatusCellTableViewCell
         let viewModel = listViewModel.statusList[indexPath.row]
+
+        let cellId = viewModel.status.retweeted_status == nil  ? originCellId : retweetCellId
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! StatusCellTableViewCell
         cell.viewModel = viewModel
         return cell
     }
@@ -67,7 +70,8 @@ extension HomeViewController {
         // swift call OC return instanceType method cant know if it is optional
         navItem.leftBarButtonItem = UIBarButtonItem(title: "Friend", target: self, action: #selector(showFriends))
         
-        tableView?.register(UINib(nibName: "StatusNormalCell", bundle: nil), forCellReuseIdentifier: cellId)
+        tableView?.register(UINib(nibName: "StatusNormalCell", bundle: nil), forCellReuseIdentifier: originCellId)
+        tableView?.register(UINib(nibName: "StatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetCellId)
         
         // set rowheight
         tableView?.rowHeight = UITableView.automaticDimension

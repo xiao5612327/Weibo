@@ -18,6 +18,7 @@ class Status: NSObject {
     @objc var text: String?
     
     @objc var user: User?
+    @objc var retweeted_status: Status?
     
     @objc var reposts_count: Int = 0
     @objc var comments_count: Int = 0

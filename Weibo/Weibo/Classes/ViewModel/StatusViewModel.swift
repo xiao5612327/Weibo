@@ -25,6 +25,12 @@ class StatusViewModel: CustomStringConvertible {
     
     var pictureViewSize = CGSize()
     
+    var picURLs: [StatusPicture]? {
+        return status.retweeted_status?.pic_urls ?? status.pic_urls
+    }
+    
+    var retweetedText: String?
+    
     init(status: Status) {
         self.status = status
         
@@ -48,7 +54,12 @@ class StatusViewModel: CustomStringConvertible {
         commentStr = getStr(count: status.comments_count, defaultSTR: "comment")
         likeStr = getStr(count: status.attitudes_count, defaultSTR: "like")
         
-        pictureViewSize = calcPictureViewSize(count: status.pic_urls?.count)
+        pictureViewSize = calcPictureViewSize(count: picURLs?.count)
+        
+        var str = "@" + (status.retweeted_status?.user?.screen_name ?? "") + ":"
+            str = str + (status.retweeted_status?.text ?? "")
+            
+        retweetedText = str
     }
     
     
